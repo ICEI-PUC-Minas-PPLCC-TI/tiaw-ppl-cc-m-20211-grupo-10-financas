@@ -16,10 +16,12 @@ const registroSaidaFormElements = {
 
 const criarHistoricoStorage = () => {
   const isHistoricoStorageCreated = localStorage.getItem("historico");
-
   if (!isHistoricoStorageCreated)
     localStorage.setItem("historico", JSON.stringify([]));
-  else historicoStorage = JSON.parse(isHistoricoStorageCreated);
+  else {
+    historicoStorage = JSON.parse(isHistoricoStorageCreated);
+    adicionarHistoricoHtml();
+  }
 };
 
 const adicionarLocalStorage = (tipo) => {
@@ -45,44 +47,58 @@ const adicionarLocalStorage = (tipo) => {
   historicoStorage.unshift(novoRegistro);
 
   localStorage.setItem("historico", JSON.stringify(historicoStorage));
+
+  criarHistoricoStorage();
 };
 
 const excluirLocalStorage = (index) => {
   historicoStorage.splice(index, 1);
 
   localStorage.setItem("historico", JSON.stringify(historicoStorage));
+
+  const tbodyHtml = document.querySelector("tbody");
+  tbodyHtml.remove();
+
+  criarHistoricoStorage();
 };
 
 const adicionarHistoricoHtml = () => {
-  const tbodyHtml = document.getElementsByTagName("tbody");
-  historicoStorage.forEach((transacao) => {
+  const tableHtml = document.querySelector("table");
+  const tbodyHtml = document.createElement("tbody");
+  tableHtml.appendChild(tbodyHtml);
+  historicoStorage.forEach((transacao, index) => {
     const tableRow = document.createElement("tr");
 
     const tableDataData = document.createElement("td");
-    const tableDataTipo = document.createElement("td");
-    const tableDataDescricao = document.createElement("td");
-    const tableDataValor = document.createElement("td");
-    const tableDataDeletar = document.createElement("td");
-
-    const valorClassAttribute = document.createAttribute("class");
-    valorClassAttribute.value =
-      transacao.tipo === "entrada" ? "entrada" : "saida";
-    tableDataValor.setAttribute(valorClassAttribute);
-
-    const deletarIcon = document.createElement("img");
-
     tableDataData.textContent = transacao.data;
-    tableDataTipo.textContent = transacao.tipo;
-    tableDataDescricao.textContent = transacao.descricao;
-    tableDataValor.textContent = transacao.valor;
 
-    tableRow.appendChild(
-      tableDataData,
-      tableDataTipo,
-      tableDataDescricao,
-      tableDataValor,
-      tableDataDeletar
+    const tableDataTipo = document.createElement("td");
+    tableDataTipo.textContent = transacao.tipo;
+
+    const tableDataDescricao = document.createElement("td");
+    tableDataDescricao.textContent = transacao.descricao;
+
+    const tableDataValor = document.createElement("td");
+    tableDataValor.textContent = transacao.valor;
+    tableDataValor.setAttribute(
+      "class",
+      transacao.tipo === "entrada" ? "entrada" : "saida"
     );
+
+    const tableDataDeletar = document.createElement("td");
+    const deletarIcon = document.createElement("img");
+    deletarIcon.setAttribute("src", "/src/assets/lixo.png");
+    deletarIcon.setAttribute("class", "img_lixo");
+    deletarIcon.setAttribute("onclick", `excluirLocalStorage(${index})`);
+    tableDataDeletar.appendChild(deletarIcon);
+
+    tableRow.appendChild(tableDataData);
+    tableRow.appendChild(tableDataTipo);
+    tableRow.appendChild(tableDataDescricao);
+    tableRow.appendChild(tableDataValor);
+    tableRow.appendChild(tableDataDeletar);
+
+    tbodyHtml.appendChild(tableRow);
   });
 };
 
