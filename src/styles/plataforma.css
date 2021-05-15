@@ -1,0 +1,71 @@
+
+body{
+    background-color: #606470;
+}
+
+.historico_title{
+    text-align: center;
+    color: #f7f7f7;
+}
+
+table{
+    background-color: #93deff;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.img_lixo{
+    width: 30px;
+}
+
+th{
+    color: #323643;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #323643;
+    border-right: 2px solid #323643;
+}
+
+td{
+    color: #323643;
+    text-align: center;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border-top: 2px solid #323643;
+    border-right: 2px solid #323643;
+}
+
+.saida{
+    color: red;
+}
+
+.entrada{
+    color: green;
+}
+
+.row_saldo{
+    background-color: #93deff;
+    border-radius: 20px;
+    text-align: center;
+    padding: 7px;
+    margin: 20px;
+}
+
+.button_entrada{
+    background-color: #93deff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 120px;
+
+
+}
+
+.button_saida{
+    background-color: #93deff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 120px;
+
+
+}
+
