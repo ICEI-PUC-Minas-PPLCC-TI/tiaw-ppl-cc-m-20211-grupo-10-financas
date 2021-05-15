@@ -1,71 +1,79 @@
-
-body{
-    background-color: #606470;
+body {
+  background-color: #606470;
 }
 
-.historico_title{
-    text-align: center;
-    color: #f7f7f7;
+.historico_title {
+  text-align: center;
+  color: #f7f7f7;
 }
 
-table{
-    background-color: #93deff;
-    border-radius: 20px;
-    width: 100%;
+table {
+  background-color: #93deff;
+  border-radius: 20px;
+  width: 100%;
 }
 
-.img_lixo{
-    width: 30px;
+.img_lixo {
+  width: 30px;
 }
 
-th{
-    color: #323643;
-    text-align: center;
-    padding: 10px;
-    border-bottom: 2px solid #323643;
-    border-right: 2px solid #323643;
+th {
+  color: #323643;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #323643;
+  border-right: 2px solid #323643;
 }
 
-td{
-    color: #323643;
-    text-align: center;
-    padding-bottom: 7px;
-    padding-top: 7px;
-    border-top: 2px solid #323643;
-    border-right: 2px solid #323643;
+td {
+  color: #323643;
+  text-align: center;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  border-top: 2px solid #323643;
+  border-right: 2px solid #323643;
 }
 
-.saida{
-    color: red;
+.saida {
+  color: red;
 }
 
-.entrada{
-    color: green;
+.entrada {
+  color: green;
 }
 
-.row_saldo{
-    background-color: #93deff;
-    border-radius: 20px;
-    text-align: center;
-    padding: 7px;
-    margin: 20px;
+.row_saldo {
+  background-color: #93deff;
+  border-radius: 20px;
+  text-align: center;
+  padding: 7px;
+  margin: 20px 0;
 }
 
-.button_entrada{
-    background-color: #93deff;
-    border-radius: 5px;
-    padding: 10px;
-    width: 120px;
-
-
+.entrada-saida-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.button_saida{
-    background-color: #93deff;
-    border-radius: 5px;
-    padding: 10px;
-    width: 120px;
-
-
+.register-container {
+  background-color: #93deff;
+  border-radius: 20px;
+  height: 50px;
+  padding: 10px 30px;
+  font-size: 22px;
 }
 
+.register-btn {
+  height: 100%;
+  background-color: #93deff;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
