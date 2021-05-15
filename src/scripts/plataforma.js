@@ -53,4 +53,37 @@ const excluirLocalStorage = (index) => {
   localStorage.setItem("historico", JSON.stringify(historicoStorage));
 };
 
+const adicionarHistoricoHtml = () => {
+  const tbodyHtml = document.getElementsByTagName("tbody");
+  historicoStorage.forEach((transacao) => {
+    const tableRow = document.createElement("tr");
+
+    const tableDataData = document.createElement("td");
+    const tableDataTipo = document.createElement("td");
+    const tableDataDescricao = document.createElement("td");
+    const tableDataValor = document.createElement("td");
+    const tableDataDeletar = document.createElement("td");
+
+    const valorClassAttribute = document.createAttribute("class");
+    valorClassAttribute.value =
+      transacao.tipo === "entrada" ? "entrada" : "saida";
+    tableDataValor.setAttribute(valorClassAttribute);
+
+    const deletarIcon = document.createElement("img");
+
+    tableDataData.textContent = transacao.data;
+    tableDataTipo.textContent = transacao.tipo;
+    tableDataDescricao.textContent = transacao.descricao;
+    tableDataValor.textContent = transacao.valor;
+
+    tableRow.appendChild(
+      tableDataData,
+      tableDataTipo,
+      tableDataDescricao,
+      tableDataValor,
+      tableDataDeletar
+    );
+  });
+};
+
 criarHistoricoStorage();
