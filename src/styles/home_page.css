@@ -1,0 +1,40 @@
+.container_plataforma{
+    margin-top: 100px;
+}
+
+.container_blog{
+    margin-top: 10%;
+}
+
+
+.title_text {
+    color: #f7f7f7;
+    font-family: Roboto;
+    font-style: normal;
+}
+
+@media screen and (max-width:990px){
+    .btn{
+        width: 50% !important;
+        margin-top: 0px !important;
+    }
+}
+
+
+.btn-lg{
+    border-radius: 30px;
+}
+
+.btn-primary {
+    color: #f7f7f7;
+    background-color: #65d0fd;
+    border-color: #65d0fd;
+    margin-top:50px;
+    width:80%;
+}
+
+.btn-primary:hover{
+    color:#f7f7f7;
+    background-color: #93deff;
+    border-color: #93deff;
+}
