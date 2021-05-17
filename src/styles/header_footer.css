@@ -28,7 +28,7 @@ body {
 }
 
 .logo{
-    font-family: Roboto;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 47.6585px;
@@ -89,7 +89,7 @@ body {
 }
   
 .logo_footer {
-    font-family: Roboto;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 47.6585px;
