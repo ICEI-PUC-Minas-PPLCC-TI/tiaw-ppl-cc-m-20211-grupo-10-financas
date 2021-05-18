@@ -21,6 +21,7 @@ const criarHistoricoStorage = () => {
   else {
     historicoStorage = JSON.parse(isHistoricoStorageCreated);
     adicionarHistoricoHtml();
+    popularDados();
   }
 };
 
@@ -36,12 +37,12 @@ const adicionarLocalStorage = (tipo) => {
     novoRegistro.data = registroEntradaFormElements.data.value;
     novoRegistro.valor = registroEntradaFormElements.valor.value;
     novoRegistro.descricao = registroEntradaFormElements.descricao.value;
-    novoRegistro.tipo = tipo;
+    novoRegistro.tipo = 'Entrada';
   } else if (tipo === "saida") {
     novoRegistro.data = registroSaidaFormElements.data.value;
     novoRegistro.valor = registroSaidaFormElements.valor.value;
     novoRegistro.descricao = registroSaidaFormElements.descricao.value;
-    novoRegistro.tipo = tipo;
+    novoRegistro.tipo = 'Saída';
   }
 
   historicoStorage.unshift(novoRegistro);
@@ -60,6 +61,64 @@ const excluirLocalStorage = (index) => {
   tbodyHtml.remove();
 
   criarHistoricoStorage();
+};
+
+const popularDados = () => {
+  calcularHora();
+  popularSaldoEntradasSaidas();
+};
+
+const popularSaldoEntradasSaidas = () => {
+  const entradasArray = historicoStorage.filter(
+    (transacao) => transacao.tipo === "entrada"
+  );
+  const saidasArray = historicoStorage.filter(
+    (transacao) => transacao.tipo === "saida"
+  );
+
+  let entradasSoma = 0;
+  let saidasSoma = 0;
+
+  entradasArray.forEach((entrada) => {
+    entradasSoma += parseFloat(entrada.valor);
+  });
+  saidasArray.forEach((saida) => {
+    saidasSoma += parseFloat(saida.valor);
+  });
+
+  const saldoHtml = document.querySelector("#saldoTotal");
+  const entradaHtml = document.querySelector("#entradaTotal");
+  const saidaHtml = document.querySelector("#saidaTotal");
+
+  entradaHtml.innerHTML = entradasSoma.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+  saidaHtml.innerHTML = saidasSoma.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+  saldoHtml.innerHTML = (entradasSoma - saidasSoma).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+};
+
+const calcularHora = () => {
+  const date = new Date();
+  const hour = date.getHours();
+  const dateHtml = document.querySelector("#date");
+  if (hour < 5) {
+    dateHtml.innerHTML = "Boa Noite!";
+  } else if (hour < 8) {
+    dateHtml.innerHTML = "Bom Dia!";
+  } else if (hour < 12) {
+    dateHtml.innerHTML = "Bom Dia!!";
+  } else if (hour < 18) {
+    dateHtml.innerHTML = "Boa tarde!";
+  } else {
+    dateHtml.innerHTML = "Boa noite!";
+  }
 };
 
 const adicionarHistoricoHtml = () => {
