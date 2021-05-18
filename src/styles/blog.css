@@ -102,11 +102,12 @@ h2.artigo {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 13%;
   }
 }
-@media screen and (min-width: 771px) and (max-width: 995px) {
+@media screen and (min-width: 771px) and (max-width: 940px) {
   img.img_artigo {
-    max-width: 325px;
+    max-width: 95%;
     margin-left: 6%;
     margin-right: 10px;
   }
@@ -115,15 +116,10 @@ h2.artigo {
     width: 100%;
   }
   h2.artigo {
-    margin-left: 13%;
+    margin-left: 9%;
   }
-}
-@media screen and (min-width: 996px) and (max-width: 1200px) {
-  h2.artigo {
-    margin-left: 10%;
+  div.artigo {
+    margin-top: 2%;
+    margin-bottom: 12%;
   }
-  img.img_artigo {
-    margin-left: 1%;
-  }
-}
 /*Fim Media Queries*/
