@@ -6,20 +6,48 @@
     <title>Spare</title>
     <script src="scripts/app.js"></script>
     <script src="https://kit.fontawesome.com/639a3ddda3.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="styles/blog.css"/>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="styles/header_footer.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/5efd0e313d.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Navegação -->
     <header class="header">
-      <a href="#">Spare</a>
-      <nav>
-        <ul class="menu">
-          <li><a href="#">Plataforma Spare</a></li>
-          <li><a href="#">Blog Spare</a></li>
-          <li><a href="#">Contato</a></li>
-          <li><a href="#">Sobre nós</a></li>
-        </ul>
-      </nav>
+      <div class="row main_menu">
+        <div class="logo col-12 col-sm-12 col-md-12 col-lg-4">
+          <a href="home_page.html">Spare</a>
+        </div>
+
+        <div class="navbar col-12 col-sm-12 col-md-12 col-lg-8">
+          <!-- Menu Mobile -->
+          <input type="checkbox" id="menuToggle" />
+          <label for="menuToggle" class="menu-icon">
+            <i class="fa fa-bars"></i>
+            <i class="fa fa-times-circle"></i>
+          </label>
+          <!-- Menu mais detalhado -->
+          <nav class="nav menu1">
+            <a class="nav-link active" href="./plataforma.html">Plataforma Spare</a>
+            <a class="nav-link" href="./blog.html">Blog Spare</a>
+            <a class="nav-link" href="about_contact_page.html">Contatos</a>
+            <a class="nav-link" href="about_contact_page.html">Sobre nós </a>
+          </nav>
+        </div>
+      </div>
     </header>
     <!-- Fim do Navegação -->
 
@@ -35,8 +63,8 @@
       <ul class="lista1">
         <li><a href="artigo1.html">Gestão Financeira</li></a>
         <li><a href="artigo2.html">Investimentos</li></a>
-        <li><a href="artigo1.html">Como Poupar?</li></a>
-        <li><a href="artigo1.html">Fontes de Renda</li></a>
+        <li><a href="artigo3.html">Como Poupar?</li></a>
+        <li><a href="artigo4.html">Fontes de Renda</li></a>
       </ul>
 
       </div>
@@ -81,7 +109,7 @@
 
         <h2 class="artigo">Como Poupar?</h2>
         <div class="artigo">
-          <a href="artigo1.html"><img class="img_artigo"
+          <a href="artigo3.html"><img class="img_artigo"
             src="assets/dinheiro.jpg"
             alt="imagem de destaque"></a>
           <p>
@@ -99,7 +127,7 @@
 
         <h2 class="artigo">Fontes de Renda</h2>
         <div class="artigo">
-          <a href="artigo1.html"><img class="img_artigo"
+          <a href="artigo4.html"><img class="img_artigo"
             src="assets/dinheiro.jpg"
             alt="imagem de destaque"></a>
           <p>
@@ -118,16 +146,56 @@
     </main>
     <!-- Fim do Conteúdo -->
 
-    <!-- Rodapé -->
     <footer class="footer">
-      <div class="redes">
-        <p class="redes"><a href="#"><i class="fab fa-facebook fa-lg"></i></a></p>
-        <p class="redes"><a href="#"><i class="fab fa-instagram fa-lg"></i></a></p>
-        <p class="redes"><a href="#"><i class="fab fa-twitter fa-lg"></i></a></p>
+      <div class="row menu_footer">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="row">
+            <div class="col-4">
+              <a href="https://www.facebook.com/" target="_blank" class="icone">
+                <i class="fab fa-facebook fa-3x"></i>
+              </a>
+            </div>
+
+            <div class="col-4">
+              <a href="https://twitter.com/home" target="_blank" class="icone">
+                <i class="fab fa-twitter fa-3x"></i>
+              </a>
+            </div>
+
+            <div class="col-4">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="icone"
+              >
+                <i class="fab fa-instagram fa-3x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <p class="copyright">© Copyright 2000-2021 PUC Minas</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <p class="logo_footer">Spare</p>
+        </div>
       </div>
-      <p>@Copywright 2000-2021 PUC Minas</p>
-      <a href="#">Spare</a>
     </footer>
-    <!-- Fim do Rodapé -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

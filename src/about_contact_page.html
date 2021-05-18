@@ -15,6 +15,7 @@
     />
     <link rel="stylesheet" href="styles/header_footer.css" />
     <link rel="stylesheet" href="styles/about_contact.css" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
 
     <!-- Font Awesome -->
     <script
@@ -22,8 +23,11 @@
       crossorigin="anonymous"
     ></script>
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="body">
@@ -42,8 +46,10 @@
           </label>
           <!-- Menu mais detalhado -->
           <nav class="nav menu1">
-            <a class="nav-link active" href="#">Plataforma Spare</a>
-            <a class="nav-link" href="#">Blog Spare</a>
+            <a class="nav-link active" href="./plataforma.html"
+              >Plataforma Spare</a
+            >
+            <a class="nav-link" href="./blog.html">Blog Spare</a>
             <a class="nav-link" href="about_contact_page.html">Contatos</a>
             <a class="nav-link" href="about_contact_page.html">Sobre nós </a>
           </nav>
@@ -55,7 +61,6 @@
       <div class="container container_sobre">
         <div class="row sobre">
           <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-
             <div class="row">
               <div class="col-12">
                 <h1 class="title_sobre">Sobre nós</h1>
@@ -63,10 +68,16 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <p class="text">Spare é um projeto que foi fundado por estudantes de Ciência da Computação da Pontifícia Universidade Católica de Minas Gerias(PUC-MINAS) com o intuito de ajudar as pessoas que tem dificuldade financeira, por meio de artigos sobre Inteligência Financeira e por uma plataforma simples mas útil que ajudará na gestão de dinheiro.</p>
+                <p class="text">
+                  Spare é um projeto que foi fundado por estudantes de Ciência
+                  da Computação da Pontifícia Universidade Católica de Minas
+                  Gerias(PUC-MINAS) com o intuito de ajudar as pessoas que tem
+                  dificuldade financeira, por meio de artigos sobre Inteligência
+                  Financeira e por uma plataforma simples mas útil que ajudará
+                  na gestão de dinheiro.
+                </p>
               </div>
             </div>
-            
           </div>
           <div class="col-12 col-sm-12 col-md-12 col-lg-6 large_logo">
             <h1 class="logo_sobre">Spare</h1>
@@ -83,7 +94,14 @@
         <div class="row assunto">
           <div class="col-12">
             <div class="input-group flex-nowrap">
-              <input id="assunto" type="text" class="form-control" placeholder="Assunto" aria-label="Username" aria-describedby="addon-wrapping">
+              <input
+                id="assunto"
+                type="text"
+                class="form-control"
+                placeholder="Assunto"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+              />
             </div>
           </div>
         </div>
@@ -91,31 +109,29 @@
         <div class="row conteudo">
           <div class="col-12">
             <div class="input-group flex-nowrap">
-              <textarea id="conteudo" class="form-control" placeholder="Dê-nos o seu feedback" style="min-height: 180px;"></textarea>
+              <textarea
+                id="conteudo"
+                class="form-control"
+                placeholder="Dê-nos o seu feedback"
+                style="min-height: 180px"
+              ></textarea>
             </div>
           </div>
         </div>
 
         <div class="row conteudo">
           <div class="col-12 conteudo2">
-            <button id="enviar" type="button" class="btn btn-primary btn-lg" onclick="handleSubmit()">
+            <button
+              id="enviar"
+              type="button"
+              class="btn btn-primary btn-lg"
+              onclick="handleSubmit()"
+            >
               Enviar
             </button>
           </div>
         </div>
-
-        
-        
       </div>
-
-
-
-
-
-
-
-      
-
     </main>
 
     <footer class="footer">
@@ -171,11 +187,11 @@
     ></script>
     <script>
       function handleSubmit() {
-        const assunto = document.getElementById('assunto').value;
-        const conteudo = document.getElementById('conteudo').value;
+        const assunto = document.getElementById("assunto").value;
+        const conteudo = document.getElementById("conteudo").value;
         const deeplink = `mailto:viniciusgadanha@hotmail.com?subject=${assunto}&body=${conteudo}`;
-        
-        location.href = deeplink
+
+        location.href = deeplink;
       }
     </script>
   </body>
