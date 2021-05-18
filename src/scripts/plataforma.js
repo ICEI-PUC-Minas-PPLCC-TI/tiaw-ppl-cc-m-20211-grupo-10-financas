@@ -56,7 +56,7 @@ const excluirLocalStorage = (index) => {
 
   localStorage.setItem("historico", JSON.stringify(historicoStorage));
 
-  const tbodyHtml = document.querySelector("tbody");
+  const tbodyHtml = document.querySelector(`tr[name="${index}"]`);
   tbodyHtml.remove();
 
   criarHistoricoStorage();
@@ -64,10 +64,17 @@ const excluirLocalStorage = (index) => {
 
 const adicionarHistoricoHtml = () => {
   const tableHtml = document.querySelector("table");
-  const tbodyHtml = document.createElement("tbody");
+  let tbodyHtml;
+  if (document.querySelector("tbody") === null) {
+    tbodyHtml = document.createElement("tbody");
+  } else {
+    tbodyHtml = document.querySelector("tbody");
+  }
   tableHtml.appendChild(tbodyHtml);
   historicoStorage.forEach((transacao, index) => {
+    if (document.querySelector(`tr[name="${index}"]`)) return;
     const tableRow = document.createElement("tr");
+    tableRow.setAttribute("name", index);
 
     const tableDataData = document.createElement("td");
     tableDataData.textContent = transacao.data;
