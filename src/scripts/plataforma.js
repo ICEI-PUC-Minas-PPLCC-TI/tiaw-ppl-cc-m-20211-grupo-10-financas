@@ -37,12 +37,12 @@ const adicionarLocalStorage = (tipo) => {
     novoRegistro.data = registroEntradaFormElements.data.value;
     novoRegistro.valor = registroEntradaFormElements.valor.value;
     novoRegistro.descricao = registroEntradaFormElements.descricao.value;
-    novoRegistro.tipo = 'Entrada';
+    novoRegistro.tipo = "Entrada";
   } else if (tipo === "saida") {
     novoRegistro.data = registroSaidaFormElements.data.value;
     novoRegistro.valor = registroSaidaFormElements.valor.value;
     novoRegistro.descricao = registroSaidaFormElements.descricao.value;
-    novoRegistro.tipo = 'Saída';
+    novoRegistro.tipo = "Saída";
   }
 
   historicoStorage.unshift(novoRegistro);
@@ -165,6 +165,8 @@ const adicionarHistoricoHtml = () => {
     tableRow.appendChild(tableDataDeletar);
 
     tbodyHtml.appendChild(tableRow);
+
+    document.querySelector("button.close").click();
   });
 };
 
