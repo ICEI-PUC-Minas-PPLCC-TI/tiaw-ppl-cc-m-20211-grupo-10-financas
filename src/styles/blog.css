@@ -5,6 +5,11 @@
   align-items: center;
   padding: 10px;
 }
+
+.logo-top{
+  width: 150px;
+}
+
 .categorias-icon {
   display: flex;
   flex-wrap: wrap;
