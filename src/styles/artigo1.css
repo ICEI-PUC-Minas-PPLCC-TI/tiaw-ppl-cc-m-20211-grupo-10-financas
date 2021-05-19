@@ -1,13 +1,22 @@
 /*Conteúdo*/
 h1,
-h2,
 h3,
 p {
   color: white;
 }
+
+h2,
+h4{
+  color: #93deff;
+}
+
+ul>li{
+  color: white;
+}
+
 .artigo_principal img {
-  width: 48%;
-  height: 230px;
+  width: 35%;
+  height: 320px;
   border-radius: 10px;
   display: block;
   margin-left: auto;
@@ -25,7 +34,7 @@ p {
 }
 .conteudo_artigo h2 {
   margin-top: 30px;
-  margin-bottom: -5px;
+  margin-bottom: 10px;
 }
 .artigos_semelhantes img {
   max-width: 220px;
