@@ -170,7 +170,7 @@ const adicionarHistoricoHtml = () => {
 
     const tableDataDeletar = document.createElement("td");
     const deletarIcon = document.createElement("img");
-    deletarIcon.setAttribute("src", "/src/assets/lixo.png");
+    deletarIcon.setAttribute("src", "./src/assets/lixo.png");
     deletarIcon.setAttribute("class", "img_lixo");
     deletarIcon.setAttribute("onclick", `excluirLocalStorage(${index})`);
     tableDataDeletar.appendChild(deletarIcon);
