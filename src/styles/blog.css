@@ -20,16 +20,25 @@
   display: flex;
   list-style: none;
   margin-left: 20px;
+  text-align: center;
 }
 .lista1{
   margin-top:12px;
   font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 15px;
+  margin: 15px;
 }
 .lista1 a {
   text-decoration: none;
   color: #f7f7f7;
   background-color: #65d0fd;
   border-radius: 20px;
+  margin: 10px;
+  padding: 5px 42px;
+  width: 235px;
 }
 .lista1 a:hover {
   color: #93deff;
@@ -113,11 +122,13 @@ h2.artigo {
     margin-bottom: 13%;
   }
 }
-@media screen and (min-width: 650px) and (max-width: 785px) {
+@media screen and (max-width: 460px) {
   div.artigo p {
-    margin-bottom: 4%;
+    padding-bottom: 100%;
   }
 }
+
+
 @media screen and (min-width: 786px) and (max-width: 985px) {
   img.img_artigo {
     max-width: 95%;
