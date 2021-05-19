@@ -8,23 +8,31 @@
 .categorias-icon {
   display: flex;
   flex-wrap: wrap;
+  color: #93deff;
 }
 .categorias p {
-  color: black;
+  color: #f7f7f7;
   margin-left: 7px;
+  margin-top: 5px;
+  font-size: 30px;
 }
 .categorias ul li {
   display: flex;
   list-style: none;
   margin-left: 20px;
-  background-color: rgb(71, 70, 70);
+}
+.lista1{
+  margin-top:12px;
+  font-weight: bold;
 }
 .lista1 a {
   text-decoration: none;
-  color: white;
+  color: #f7f7f7;
+  background-color: #65d0fd;
+  border-radius: 20px;
 }
 .lista1 a:hover {
-  color: lightblue;
+  color: #93deff;
 }
 /*Dropdown Categorias Ações*/
 #dropdown {
@@ -67,7 +75,7 @@ div.artigo p {
   max-width: 1030px;
   margin: 0 auto;
   margin-bottom: 24px;
-  color: white;
+  color: #f7f7f7;
 }
 img.img_artigo {
   max-width: 650px;
