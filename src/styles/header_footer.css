@@ -4,6 +4,11 @@
 }
 
 /* HEADER - start*/
+
+.logo-top{
+  width: 150px;
+}
+
 .header {
   background: #323643;
   width: 100%;
