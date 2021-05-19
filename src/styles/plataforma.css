@@ -66,8 +66,12 @@ td {
   background-color: #93deff;
   border-radius: 20px;
   height: 50px;
+  width: 260px !important;
   padding: 10px 30px;
   font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .register-btn {
@@ -82,4 +86,26 @@ td {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.modal-body input {
+  width: 100%;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 780px) {
+  .entrada-saida-row {
+    flex-direction: column;
+  }
+
+  .register-container {
+    margin: 16px 0 !important;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  #tableTipoHead,
+  .tableTipoBody {
+    display: none;
+  }
 }

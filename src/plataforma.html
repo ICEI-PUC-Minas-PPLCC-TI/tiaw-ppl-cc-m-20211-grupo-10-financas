@@ -118,6 +118,7 @@
                   <button
                     type="button"
                     class="close"
+                    id="closeEntradaModal"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
@@ -126,11 +127,11 @@
                 </div>
                 <div class="modal-body">
                   <input
-                    type="text"
+                    type="date"
                     placeholder="dd/mm/aaaa"
                     id="data-entrada"
                   />
-                  <input type="text" placeholder="R$" id="valor-entrada" />
+                  <input type="number" placeholder="R$000,00" id="valor-entrada" />
                   <input
                     type="text"
                     placeholder="Descrição"
@@ -176,6 +177,7 @@
                   <button
                     type="button"
                     class="close"
+                    id="closeSaidaModal"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
@@ -183,8 +185,8 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <input type="text" placeholder="dd/mm/aaaa" id="data-saida" />
-                  <input type="text" placeholder="R$" id="valor-saida" />
+                  <input type="date" placeholder="dd/mm/aaaa" id="data-saida" />
+                  <input type="number" placeholder="R$000,00" id="valor-saida" />
                   <input
                     type="text"
                     placeholder="Descrição"
@@ -224,7 +226,7 @@
             <table>
               <thead class="historico_table_title">
                 <th>Data</th>
-                <th>Tipo</th>
+                <th id="tableTipoHead">Tipo</th>
                 <th>Descrição</th>
                 <th>Valor</th>
                 <th>Apagar</th>

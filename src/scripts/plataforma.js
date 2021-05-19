@@ -37,17 +37,22 @@ const adicionarLocalStorage = (tipo) => {
     novoRegistro.data = registroEntradaFormElements.data.value;
     novoRegistro.valor = registroEntradaFormElements.valor.value;
     novoRegistro.descricao = registroEntradaFormElements.descricao.value;
-    novoRegistro.tipo = "Entrada";
+    novoRegistro.tipo = tipo;
   } else if (tipo === "saida") {
     novoRegistro.data = registroSaidaFormElements.data.value;
     novoRegistro.valor = registroSaidaFormElements.valor.value;
     novoRegistro.descricao = registroSaidaFormElements.descricao.value;
-    novoRegistro.tipo = "Saída";
+    novoRegistro.tipo = tipo;
   }
 
   historicoStorage.unshift(novoRegistro);
 
   localStorage.setItem("historico", JSON.stringify(historicoStorage));
+
+  novoRegistro.data = "";
+  novoRegistro.descricao = "";
+  novoRegistro.valor = "";
+  novoRegistro.tipo = "";
 
   criarHistoricoStorage();
 };
@@ -60,7 +65,18 @@ const excluirLocalStorage = (index) => {
   const tbodyHtml = document.querySelector(`tr[name="${index}"]`);
   tbodyHtml.remove();
 
+  clearInputs();
   criarHistoricoStorage();
+};
+
+const clearInputs = () => {
+  registroEntradaFormElements.data.value = "";
+  registroEntradaFormElements.descricao.value = "";
+  registroEntradaFormElements.valor.value = "";
+
+  registroSaidaFormElements.data.value = "";
+  registroSaidaFormElements.descricao.value = "";
+  registroSaidaFormElements.valor.value = "";
 };
 
 const popularDados = () => {
@@ -139,6 +155,7 @@ const adicionarHistoricoHtml = () => {
     tableDataData.textContent = transacao.data;
 
     const tableDataTipo = document.createElement("td");
+    tableDataTipo.setAttribute("class", "tableTipoBody");
     tableDataTipo.textContent = transacao.tipo;
 
     const tableDataDescricao = document.createElement("td");
@@ -166,7 +183,12 @@ const adicionarHistoricoHtml = () => {
 
     tbodyHtml.appendChild(tableRow);
 
-    document.querySelector("button.close").click();
+    if (transacao.tipo === "entrada")
+      document.querySelector("button#closeEntradaModal").click();
+    else if (transacao.tipo === "saida")
+      document.querySelector("button#closeSaidaModal").click();
+
+    clearInputs();
   });
 };
 
