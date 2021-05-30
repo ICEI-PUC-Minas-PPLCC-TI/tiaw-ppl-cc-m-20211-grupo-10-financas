@@ -1,0 +1,36 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.linha1 {
+    margin-top: 20px;
+}
+
+#btn_logout {
+    border-radius: 20px;
+    width: 140px;
+    margin-top: 10px;
+    color:#f7f7f7;
+    background-color: #65d0fd;
+    border-color: #65d0fd;
+}
+
+#btn_logout:hover{
+    color:#f7f7f7;
+    background-color: #93deff;
+    border-color: #93deff;
+}
+
+.h1{
+    color: #f7f7f7;
+}
+
+.tr {
+    color: #93deff;
+}
+
+tbody {
+    color: #f7f7f7;
+}

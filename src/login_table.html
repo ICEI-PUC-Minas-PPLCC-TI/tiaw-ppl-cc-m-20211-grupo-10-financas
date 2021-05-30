@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
-    <title>Spare</title>
+    <title>Tabela Login</title>
     <!-- Required meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,9 +14,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles/header_footer.css" />
-    <link rel="stylesheet" href="styles/about_contact.css" />
+    <link rel="stylesheet" href="styles/login_table.css" />
     <link rel="stylesheet" type="text/css" href="./styles/main.css" />
-
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/5efd0e313d.js"
@@ -28,13 +27,50 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
       rel="stylesheet"
     />
+    <script src="scripts/login.js"></script>
+    <script>
+      // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login
+      if (!usuarioCorrente.login) {
+        window.location.href = LOGIN_URL;
+      }
+
+      function exibeUsuarios() {
+        // Popula a tabela com os registros do banco de dados
+        let listaUsuarios = "";
+        for (i = 0; i < db_usuarios.usuarios.length; i++) {
+          let usuario = db_usuarios.usuarios[i];
+          listaUsuarios += `<tr><td scope="row">${usuario.nome}</td><td>${usuario.login}</td><td>${usuario.email}</td></tr>`;
+        }
+
+        // Substitui as linhas do corpo da tabela
+        document.getElementById("table-usuarios").innerHTML = listaUsuarios;
+      }
+
+      function initPage() {
+        // Associa a função de logout ao botão
+        document
+          .getElementById("btn_logout")
+          .addEventListener("click", logoutUser);
+
+        // Informa o nome do usuário logado
+        document.getElementById("nomeUsuario").innerHTML = usuarioCorrente.nome;
+
+        // Lista os usuários
+        exibeUsuarios();
+      }
+
+      // Associa ao evento de carga da página a função para verificar se o usuário está logado
+      window.addEventListener("load", initPage);
+    </script>
   </head>
 
-  <body class="body">
+  <body>
     <header class="header">
       <div class="row main_menu">
         <div class="logo col-12 col-sm-12 col-md-12 col-lg-4">
-          <a href="../index.html"><img class="logo-top" src="./assets/spare.png" alt="Logo"></a>
+          <a href="../index.html"
+            ><img class="logo-top" src="./assets/spare.png" alt="Logo"
+          /></a>
         </div>
 
         <div class="navbar col-12 col-sm-12 col-md-12 col-lg-8">
@@ -46,9 +82,7 @@
           </label>
           <!-- Menu mais detalhado -->
           <nav class="nav menu1">
-            <a class="nav-link active" href="./plataforma.html"
-              >Plataforma Spare</a
-            >
+            <a class="nav-link active" href="./plataforma.html">Plataforma Spare</a>
             <a class="nav-link" href="./blog.html">Blog Spare</a>
             <a class="nav-link" href="about_contact_page.html">Contatos</a>
             <a class="nav-link" href="login.html">Login</a>
@@ -58,80 +92,43 @@
     </header>
 
     <main class="main">
-      <div class="container container_sobre">
-        <div class="row sobre">
-          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-            <div class="row">
-              <div class="col-12">
-                <h1 class="title_sobre">Sobre nós</h1>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <p class="text">
-                  Spare é um projeto que foi fundado por estudantes de Ciência da Computação da Pontifícia Universidade Católica de Minas
-                  Gerais(PUC-MINAS) com o intuito de ajudar as pessoas que tem
-                  dificuldade financeira, por meio de artigos sobre Inteligência
-                  Financeira e por uma plataforma simples mas útil que ajudará
-                  na gestão de dinheiro.
-                </p>
-              </div>
-            </div>
+      <div class="container">
+        <div class="row linha1">
+          <div class="col-12 col-lg-8">
+            <h1 class="h1">Olá <span id="nomeUsuario">, seja bem-vindo!</span></h1>
           </div>
-          <div class="col-12 col-sm-12 col-md-12 col-lg-6 large_logo">
-            <h1 class="logo_sobre"><img src="./assets/spare.png" alt="Logo"></h1>
-          </div>
+          <div class="col-12 col-lg-4">
+            <button id="btn_logout">Logout</button>
+          </div>          
         </div>
       </div>
+      
 
-      <div class="container contatos">
+      <div class="container">
         <div class="row">
-          <div class="col-12">
-            <h1 class="title_contato">Contato</h1>
-          </div>
-        </div>
-        <div class="row assunto">
-          <div class="col-12">
-            <div class="input-group flex-nowrap">
-              <input
-                id="assunto"
-                type="text"
-                class="form-control"
-                placeholder="Assunto"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="row conteudo">
-          <div class="col-12">
-            <div class="input-group flex-nowrap">
-              <textarea
-                id="conteudo"
-                class="form-control"
-                placeholder="Dê-nos o seu feedback"
-                style="min-height: 180px"
-              ></textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="row conteudo">
-          <div class="col-12 conteudo2">
-            <button
-              id="enviar"
-              type="button"
-              class="btn btn-primary btn-lg"
-              onclick="handleSubmit()"
-            >
-              Enviar
-            </button>
+          <div class="col-sm-12">
+            <table id="grid-usuarios" class="table table-striped">
+              <thead>
+                <tr class="tr">
+                  <th scope="col">Nome</th>
+                  <th scope="col">login</th>
+                  <th scope="col">E-mail</th>
+                </tr>
+              </thead>
+              <tbody id="table-usuarios">
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+
     </main>
+    
 
     <footer class="footer">
       <div class="row menu_footer">
@@ -164,7 +161,9 @@
           <p class="copyright">© Copyright 2000-2021 PUC Minas</p>
         </div>
         <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-          <p class="logo_footer"><img class="logo-top" src="./assets/spare.png" alt="Logo"></p>
+          <p class="logo_footer">
+            <img class="logo-top" src="./assets/spare.png" alt="Logo" />
+          </p>
         </div>
       </div>
     </footer>
@@ -184,14 +183,5 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script>
-      function handleSubmit() {
-        const assunto = document.getElementById("assunto").value;
-        const conteudo = document.getElementById("conteudo").value;
-        const deeplink = `mailto:viniciusgadanha@hotmail.com?subject=${assunto}&body=${conteudo}`;
-
-        location.href = deeplink;
-      }
-    </script>
   </body>
 </html>
