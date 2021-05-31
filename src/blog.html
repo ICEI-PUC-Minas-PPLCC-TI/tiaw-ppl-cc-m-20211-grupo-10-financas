@@ -50,19 +50,24 @@
   <main>
 
     <!-- Dropdown Categorias -->
-    <div class="categorias">
-      <input type="checkbox" id="dropdown" class="categorias-icon">
-      <label for="dropdown" class="categorias-icon"><i class="fas fa-bars fa-2x"></i><i
-          class="fas fa-times-circle fa-2x"></i></label>
-      <p class="categorias-icon">Categorias</p>
+    <div class="cate_e_search">
+      <div class="categorias">
+        <input type="checkbox" id="dropdown" class="categorias-icon">
+        <label for="dropdown" class="categorias-icon"><i class="fas fa-bars fa-2x"></i><i
+            class="fas fa-times-circle fa-2x"></i></label>
+        <p class="categorias-icon">Categorias</p>
 
-      <ul class="lista1">
-        <li><a href="artigo1.html">Gestão Financeira</li></a>
-        <li><a href="artigo2.html">Investimentos</li></a>
-        <li><a href="artigo3.html">Como Poupar?</li></a>
-        <li><a href="artigo4.html">Fontes de Renda</li></a>
-      </ul>
-
+        <ul class="lista1">
+          <li><a href="artigo1.html">Gestão Financeira</li></a>
+          <li><a href="artigo2.html">Investimentos</li></a>
+          <li><a href="artigo3.html">Como Poupar?</li></a>
+          <li><a href="artigo4.html">Fontes de Renda</li></a>
+        </ul>
+      </div>
+      <div class="searchBox">
+          <input onchange="pesquisar()" id="pesquisar" class="searchBar" type="text" placeholder="Pesquisar..." autocomplete="off" style="display: none;">
+          <button onclick="aparecerBarraPesquisa()" type="submit" class="searchButton"><i class="fas fa-search fa"></i></button>
+      </div>
     </div>
     <!-- Fim Dropdown Categorias -->
 
