@@ -43,7 +43,7 @@ function pesquisar(){
             artigo4.display='grid';
             artigo4.marginBottom='210px';
         }
-        else if (pesquisar=="Todos" || pesquisar=='todos'){
+        else if (pesquisar=="Todos" || pesquisar=='todos' || pesquisar=='dinheiro' || pesquisar=='finanças'){
             for (let i =0; i<span.length; i++){
                 span[i].style.display='grid'
                 span[i].style.marginBottom='0px';
