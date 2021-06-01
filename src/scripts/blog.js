@@ -22,7 +22,7 @@ function pesquisar(){
             artigo1.display='grid';
             artigo1.marginBottom='210px';
         }
-        else if (pesquisar=="Investimentos" || pesquisar=="Investimento" || pesquisar=='investimentos' || pesquisar=='investimento'){
+        else if (pesquisar=="Investimentos" || pesquisar=="Investimento" || pesquisar=='investimentos' || pesquisar=='investimento' || pesquisar=='investir'){
             for (let i =0; i<span.length; i++){
                 span[i].style.display='none'
             }
