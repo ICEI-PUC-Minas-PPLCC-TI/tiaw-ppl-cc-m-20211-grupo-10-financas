@@ -1,0 +1,44 @@
+#login {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+}
+
+.text-info {
+    color: #93deff!important;
+}
+
+.text-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-info {
+    color: #f7f7f7;
+    background-color: #65d0fd;
+    border-color: #65d0fd;
+}
+
+.btn-info:hover{
+    color:#f7f7f7;
+    background-color: #93deff;
+    border-color: #93deff;
+}
+
+.modal-content {
+    background-color: #323643;
+    border-radius: 1.5rem;
+}
+
+.modal-title {
+    color: #f7f7f7;
+}
+
+.close {
+    color: #f7f7f7;
+}
+
+.close:hover{
+    color: #323643;
+}

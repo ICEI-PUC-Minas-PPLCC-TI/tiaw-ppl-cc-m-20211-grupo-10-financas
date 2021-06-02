@@ -108,7 +108,7 @@
 .menu-icon {
   display: none;
 }
-@media (max-width: 990px) {
+@media (max-width: 1034px) {
   .menu1 {
     z-index: 2;
     display: flex;
@@ -177,9 +177,16 @@
     background-color: #93deff;
   }
 
-  .col-md-12 {
+  .logo{
     text-align: center;
   }
+
+  .button_plataforma, .button_blog{
+    text-align: center;
+  }
+  /*.col-md-12 
+    text-align: center;
+  }*/
 
   .navbar {
     padding: 0;

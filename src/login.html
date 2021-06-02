@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Login</title>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/header_footer.css" />
+    <link rel="stylesheet" href="styles/login.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/5efd0e313d.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="row main_menu">
+        <div class="logo col-12 col-sm-12 col-md-12 col-lg-4">
+          <a href="../index.html"
+            ><img class="logo-top" src="./assets/spare.png" alt="Logo"
+          /></a>
+        </div>
+
+        <div class="navbar col-12 col-sm-12 col-md-12 col-lg-8">
+          <!-- Menu Mobile -->
+          <input type="checkbox" id="menuToggle" />
+          <label for="menuToggle" class="menu-icon">
+            <i class="fa fa-bars"></i>
+            <i class="fa fa-times-circle"></i>
+          </label>
+          <!-- Menu mais detalhado -->
+          <nav class="nav menu1">
+            <a class="nav-link active" href="./plataforma.html">Plataforma Spare</a>
+            <a class="nav-link" href="./blog.html">Blog Spare</a>
+            <a class="nav-link" href="about_contact_page.html">Contatos</a>
+            <a class="nav-link" href="login.html">Login</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div id="login">
+      <div class="container">
+        <div
+          id="login-row"
+          class="row justify-content-center align-items-center"
+        >
+          <div id="login-column" class="col-md-6">
+            <div id="login-box" class="col-md-12">
+              <form
+                id="login-form"
+                class="form"
+                method="post"
+                onsubmit="loginUser (this)"
+              >
+                <h3 class="text-center text-info">Login</h3>
+                <div class="form-group">
+                  <label for="username" class="text-info">Usuário</label><br />
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password" class="text-info">Senha</label><br />
+                  <input
+                    type="text"
+                    name="password"
+                    id="password"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group text-right">
+                  <button
+                    type="button"
+                    class="btn btn-info"
+                    data-toggle="modal"
+                    data-target="#loginModal"
+                  >
+                    Novo usuario
+                  </button>     
+
+                  <input
+                    type="submit"
+                    name="submit"
+                    class="btn btn-info btn-md"
+                    value="Entrar"
+                  />
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login Spare</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="login-box" class="col-md-12">
+              <form
+                id="login-form"
+                class="form"
+                method="post"
+                onsubmit="loginUser (this)"
+              >
+                <h3 class="text-center text-info">Novo usuário</h3>
+                <div class="form-group">
+                  <label for="login" class="text-info">Usuário</label><br />
+                  <input
+                    type="text"
+                    name="txt_login"
+                    id="txt_login"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="nome" class="text-info">Nome completo</label
+                  ><br />
+                  <input
+                    type="text"
+                    name="txt_nome"
+                    id="txt_nome"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email" class="text-info">email</label><br />
+                  <input
+                    type="text"
+                    name="txt_email"
+                    id="txt_email"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="senha" class="text-info">Senha</label><br />
+                  <input
+                    type="password"
+                    name="txt_senha"
+                    id="txt_senha"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="senha2" class="text-info"
+                    >Confirmação de Senha</label
+                  ><br />
+                  <input
+                    type="password"
+                    name="txt_senha2"
+                    id="txt_senha2"
+                    class="form-control"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button type="button" id="btn_salvar" class="btn btn-info">
+              Salvar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="row menu_footer">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="row">
+            <div class="col-4">
+              <a href="https://www.facebook.com/" target="_blank" class="icone">
+                <i class="fab fa-facebook fa-3x"></i>
+              </a>
+            </div>
+
+            <div class="col-4">
+              <a href="https://twitter.com/home" target="_blank" class="icone">
+                <i class="fab fa-twitter fa-3x"></i>
+              </a>
+            </div>
+
+            <div class="col-4">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="icone"
+              >
+                <i class="fab fa-instagram fa-3x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <p class="copyright">© Copyright 2000-2021 PUC Minas</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <p class="logo_footer">
+            <img class="logo-top" src="./assets/spare.png" alt="Logo" />
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts/login.js"></script>
+    <script>
+      // Declara uma função para processar o formulário de login
+      function processaFormLogin(event) {
+        // Cancela a submissão do formulário para tratar sem fazer refresh da tela
+        event.preventDefault();
+
+        // Obtem os dados de login e senha a partir do formulário de login
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Valida login e se estiver ok, redireciona para tela inicial da aplicação
+        resultadoLogin = loginUser(username, password);
+        if (resultadoLogin) {
+          window.location.href = "login_table.html";
+        } else {
+          // Se login falhou, avisa ao usuário
+          alert("Usuário ou senha incorretos");
+        }
+      }
+
+      function salvaLogin(event) {
+        // Cancela a submissão do formulário para tratar sem fazer refresh da tela
+        event.preventDefault();
+
+        // Obtem os dados do formulário
+        let login = document.getElementById("txt_login").value;
+        let nome = document.getElementById("txt_nome").value;
+        let email = document.getElementById("txt_email").value;
+        let senha = document.getElementById("txt_senha").value;
+        let senha2 = document.getElementById("txt_senha2").value;
+        if (senha != senha2) {
+          alert("As senhas informadas não conferem.");
+          return;
+        }
+
+        // Adiciona o usuário no banco de dados
+        addUser(nome, login, senha, email);
+        alert("Usuário salvo com sucesso. Proceda com o login para ");
+
+        // Oculta a div modal do login
+        //document.getElementById ('loginModal').style.display = 'none';
+        $("#loginModal").modal("hide");
+      }
+
+      // Associa a funçao processaFormLogin  formulário adicionado um manipulador do evento submit
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", processaFormLogin);
+
+      // Associar salvamento ao botao
+      document
+        .getElementById("btn_salvar")
+        .addEventListener("click", salvaLogin);
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
