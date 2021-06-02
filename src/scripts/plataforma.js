@@ -33,6 +33,20 @@ const adicionarLocalStorage = (tipo) => {
     tipo: "",
   };
 
+  if (
+    (tipo === "entrada") & (registroEntradaFormElements.data.value === "") &&
+    registroEntradaFormElements.valor.value === "" &&
+    registroEntradaFormElements.descricao.value === ""
+  )
+    return;
+
+  if (
+    (tipo === "saida") & (registroSaidaFormElements.data.value === "") &&
+    registroSaidaFormElements.valor.value === "" &&
+    registroSaidaFormElements.descricao.value === ""
+  )
+    return;
+
   if (tipo === "entrada") {
     novoRegistro.data = registroEntradaFormElements.data.value;
     novoRegistro.valor = registroEntradaFormElements.valor.value;
@@ -50,11 +64,11 @@ const adicionarLocalStorage = (tipo) => {
   localStorage.setItem("historico", JSON.stringify(historicoStorage));
 
   novoRegistro.data = "";
-  novoRegistro.descricao = "";
   novoRegistro.valor = "";
+  novoRegistro.descricao = "";
   novoRegistro.tipo = "";
 
-  criarHistoricoStorage();
+  location.reload();
 };
 
 const excluirLocalStorage = (index) => {
@@ -66,7 +80,7 @@ const excluirLocalStorage = (index) => {
   tbodyHtml.remove();
 
   clearInputs();
-  criarHistoricoStorage();
+  location.reload();
 };
 
 const clearInputs = () => {
@@ -170,7 +184,7 @@ const adicionarHistoricoHtml = () => {
 
     const tableDataDeletar = document.createElement("td");
     const deletarIcon = document.createElement("img");
-    deletarIcon.setAttribute("src", "./src/assets/lixo.png");
+    deletarIcon.setAttribute("src", "./assets/lixo.png");
     deletarIcon.setAttribute("class", "img_lixo");
     deletarIcon.setAttribute("onclick", `excluirLocalStorage(${index})`);
     tableDataDeletar.appendChild(deletarIcon);
