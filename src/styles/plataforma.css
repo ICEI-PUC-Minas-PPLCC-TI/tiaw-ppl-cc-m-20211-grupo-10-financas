@@ -2,7 +2,7 @@ body {
   background-color: #606470;
 }
 
-.logo-top{
+.logo-top {
   width: 150px;
 }
 
@@ -98,13 +98,13 @@ td {
   border-radius: 10px;
 }
 
-.modal-content{
+.modal-content {
   background-color: #323643;
   color: #f7f7f7;
   border-radius: 1.5rem;
 }
 
-.close{
+.close {
   color: #f7f7f7;
 }
 
@@ -115,8 +115,8 @@ td {
   border-radius: 20px;
 }
 
-.btn-primary:hover{
-  color:#f7f7f7;
+.btn-primary:hover {
+  color: #f7f7f7;
   background-color: #93deff;
   border-color: #93deff;
 }
@@ -126,6 +126,27 @@ td {
   background-color: #606470;
   border-color: #606470;
   border-radius: 20px;
+}
+
+img.img_artigo {
+  max-width: 650px;
+  max-height: 200px;
+  border-radius: 10px;
+  margin-left: -30px;
+  display: block;
+  margin: 0 auto;
+}
+
+h1 {
+  padding: 15px;
+  color: white;
+}
+
+.title-recomendados {
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  font-size: 1.7rem;
 }
 
 @media screen and (max-width: 780px) {

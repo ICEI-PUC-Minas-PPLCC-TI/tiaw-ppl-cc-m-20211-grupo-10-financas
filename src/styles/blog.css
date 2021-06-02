@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 10px;
+  margin-top: 4px;
 }
 
 .logo-top{
@@ -18,7 +19,7 @@
 .categorias p {
   color: #f7f7f7;
   margin-left: 7px;
-  margin-top: 5px;
+  margin-top: 7px;
   font-size: 30px;
 }
 .categorias ul li {
@@ -28,20 +29,18 @@
   text-align: center;
 }
 .lista1{
-  margin-top:12px;
   font-weight: bold;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 15px;
-  margin: 15px;
+  margin-top: 9px;
+
 }
 .lista1 a {
   text-decoration: none;
   color: #f7f7f7;
   background-color: #65d0fd;
   border-radius: 20px;
-  margin: 10px;
   padding: 5px 42px;
   width: 235px;
 }
@@ -53,7 +52,7 @@
   display: none;
 }
 #dropdown:checked ~ label i:nth-child(2) {
-  display: block;
+  display: flex;
 }
 #dropdown:checked ~ label i:first-child {
   display: none;
@@ -62,7 +61,7 @@
   display: none;
 }
 #dropdown:not(checked) ~ label i:first {
-  display: block;
+  display: flex;
 }
 #dropdown:checked ~ ul {
   display: flex;
@@ -73,6 +72,54 @@
 /*Fim Dropdown Categorias Ações*/
 
 /*Fim Dropdown Categorias*/
+
+/* Início Search Box*/
+.searchBox{
+  display:flex;
+}
+.searchBox:hover > .searchBar {
+  width: 205px;
+  height: 18px;
+  padding: 15px;
+  margin-right: 14px; 
+  border-radius: 30px;
+ }
+ .searchButton {
+  margin-top: 23px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #323643;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+ }
+ .searchButton > i {
+  font-size: 21px;
+ }
+.searchBar{
+  outline: none;
+  background-color: #323643;
+  color: white;
+  margin-top: 32px;
+  width: 205px;
+  height: 18px;
+  padding: 15px;
+  margin-right: 14px; 
+  border-radius: 30px;
+  border: none;
+}
+i.fa-search{
+  color: #93deff;
+}
+.cate_e_search{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+/* Fim Search Box*/
 
 /*Artigos*/
 .descrição {
@@ -87,7 +134,7 @@ div.artigo p {
   display: grid;
   grid-template-columns: repeat(2, 7fr);
   max-width: 1030px;
-  margin: 0 auto;
+  margin: 30px auto 33px;
   margin-bottom: 24px;
   color: #f7f7f7;
 }
@@ -103,7 +150,20 @@ h2.artigo {
 /*Fim Artigos*/
 
 /*Media Queries*/
+@media screen and (max-width: 360px) {
+  div.artigo{
+    margin-bottom: 124%;
+  }
+}
+@media screen and (min-width: 361px) and (max-width: 460px) {
+  span>div.artigo{
+    margin-bottom: 45%;
+  }
+}
 @media screen and (max-width: 785px) {
+  .lista1 a {
+    margin: 10px;
+  }
   img.img_artigo {
     width: 300px;
     max-height: 200px;
@@ -117,24 +177,20 @@ h2.artigo {
     text-align: center;
   }
   h2.artigo {
-    margin-left: 0px;
+    margin: 0 auto;
   }
   div.artigo p {
-    width: 95%;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 13%;
+    width: 94%;
+    margin: 20px auto 13%;
+  }
+  .searchBox, .searchButton, .searchBar{
+    display: none!important;
   }
 }
-@media screen and (max-width: 460px) {
-  div.artigo p {
-    padding-bottom: 100%;
-  }
-}
-
-
 @media screen and (min-width: 786px) and (max-width: 985px) {
+  .lista1 a {
+    margin: 10px;
+  }
   img.img_artigo {
     max-width: 95%;
     margin-left: 6%;
@@ -149,15 +205,60 @@ h2.artigo {
   }
   div.artigo {
     margin-top: 2%;
-    margin-bottom: 12%;
+    margin-bottom: 13%;
+  }
+  .searchButton{
+    position: absolute;
+    right: 22px;
+    top: 104px;
+  }
+  .searchBar{
+    position: absolute;
+    right: 60px;
+    top: 103px;
   }
 }
 @media screen and (min-width: 986px) and (max-width: 1150px){
+  .lista1 a {
+    margin: 10px;
+  }
   h2.artigo {
     margin-left: 3%;
   }
   img.img_artigo {
     margin-left: 2%;
+  }
+  .searchButton{
+    position: absolute;
+    right: 22px;
+    top: 104px;
+  }
+  .searchBar{
+    position: absolute;
+    right: 60px;
+    top: 103px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1100px){
+    .searchButton{
+    position: absolute;
+    right: 22px;
+    top: 142px;
+  }
+  .searchBar{
+    position: absolute;
+    right: 60px;
+    top: 143px;
+  }
+  .searchButton{
+    position: absolute;
+    right: 22px;
+    top: 136px;
+  }
+  .searchBar{
+    position: absolute;
+    right: 60px;
+    top: 136px;
   }
 }
 @media screen and (min-width: 1151px) and (max-width: 1220px){
@@ -165,9 +266,33 @@ h2.artigo {
     margin-left: 4%;
   }
 }
+@media screen and (min-width: 1151px) and (max-width: 1302px){
+  .searchButton{
+    position: absolute;
+    right: 22px;
+    top: 104px;
+  }
+  .searchBar{
+    position: absolute;
+    right: 60px;
+    top: 103px;
+  }
+}
 @media screen and (min-width: 1221px) and (max-width: 1360px){
   h2.artigo {
     margin-left: 8%;
+  }
+}
+@media screen and (min-width: 1303px) and (max-width:1555px){
+    .searchButton{
+    position: absolute;
+    left: 6px;
+    top: 150px;
+  }
+  .searchBar{
+    position: absolute;
+    left: 51px;
+    top: 148px;
   }
 }
 @media screen and (min-width: 1361px) and (max-width: 1460px){
@@ -176,7 +301,7 @@ h2.artigo {
   }
 }
 @media screen and (min-width: 1461px) and (max-width: 1660px){
-    h2.artigo {
+  h2.artigo {
       margin-left: 16%;
     }
 }

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spare</title>
   <script src="scripts/app.js"></script>
-  <script src="https://kit.fontawesome.com/639a3ddda3.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="scripts/blog.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="styles/blog.css" />
@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="styles/header_footer.css" />
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/5efd0e313d.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/639a3ddda3.js" crossorigin="anonymous"></script>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
@@ -50,23 +51,29 @@
   <main>
 
     <!-- Dropdown Categorias -->
-    <div class="categorias">
-      <input type="checkbox" id="dropdown" class="categorias-icon">
-      <label for="dropdown" class="categorias-icon"><i class="fas fa-bars fa-2x"></i><i
-          class="fas fa-times-circle fa-2x"></i></label>
-      <p class="categorias-icon">Categorias</p>
+    <div class="cate_e_search">
+      <div class="categorias">
+        <input type="checkbox" id="dropdown" class="categorias-icon">
+        <label for="dropdown" class="categorias-icon"><i class="fas fa-bars fa-2x"></i><i
+            class="fas fa-times-circle fa-2x"></i></label>
+        <p class="categorias-icon">Categorias</p>
 
-      <ul class="lista1">
-        <li><a href="artigo1.html">Gestão Financeira</li></a>
-        <li><a href="artigo2.html">Investimentos</li></a>
-        <li><a href="artigo3.html">Como Poupar?</li></a>
-        <li><a href="artigo4.html">Fontes de Renda</li></a>
-      </ul>
-
+        <ul class="lista1">
+          <li><a href="artigo1.html">Gestão Financeira</li></a>
+          <li><a href="artigo2.html">Investimentos</li></a>
+          <li><a href="artigo3.html">Como Poupar?</li></a>
+          <li><a href="artigo4.html">Fontes de Renda</li></a>
+        </ul>
+      </div>
+      <div class="searchBox">
+          <input onchange="pesquisar()" id="pesquisar" class="searchBar" type="text" placeholder="Pesquisar..." autocomplete="off" style="display: none;">
+          <button onclick="aparecerBarraPesquisa()" type="submit" class="searchButton"><i class="fas fa-search fa"></i></button>
+      </div>
     </div>
     <!-- Fim Dropdown Categorias -->
 
-    <!-- Artigos-->
+     <!-- Artigos-->
+   <span id="artigo1" class="artigos">
     <h2 class="artigo">Gestão Financeira</h2>
     <div class="artigo">
       <a href="artigo1.html"><img class="img_artigo" src="assets/gestao-financeira.jpg" alt="imagem de destaque"></a>
@@ -77,21 +84,28 @@
         financeira, prejudicando a si mesmas e aos outros a seu redor.
         A educação financeira te ajuda na busca de uma qualidade de vida no futuro, no alcançar seus objetivos e na
         obtenção da segurança financeira necessária para aproveitar os prazeres da vida.
-
-
       </p>
-
+    
     </div>
+    </span>
 
+    <span id="artigo2" class="artigos">
     <h2 class="artigo">Investimentos</h2>
     <div class="artigo">
       <a href="artigo2.html"><img class="img_artigo" src="assets/investimento_image.jpg" alt="imagem de destaque"></a>
       <p>
         <span class="descrição">Descrição:</span><br>
-        Antes de mostrar a importância de investir seu dinheiro primeiramente vamos entender o que é investimento, esse conceito é bastante amplo, investimentos são produtos emitidos pelas instituições financeiras, empresas ou pelo próprio governo com o objetivo de receber recursos de forma mais barata que os empréstimos bancários e em troca eles oferecem ao investidor uma taxa de rentabilidade ou benefícios, de uma forma geral, investimento é “plantar agora para colher no futuro”, resumindo Investidor aplica uma quantia de dinheiro agora para que no futuro ter um retorno maior do que o capital que aplicou.
+        Antes de mostrar a importância de investir seu dinheiro primeiramente vamos entender o que é investimento, esse
+        conceito é bastante amplo, investimentos são produtos emitidos pelas instituições financeiras, empresas ou pelo
+        próprio governo com o objetivo de receber recursos de forma mais barata que os empréstimos bancários e em troca
+        eles oferecem ao investidor uma taxa de rentabilidade ou benefícios, de uma forma geral, investimento é “plantar
+        agora para colher no futuro”, resumindo Investidor aplica uma quantia de dinheiro agora para que no futuro ter
+        um retorno maior do que o capital que aplicou.
       </p>
     </div>
+    </span>
 
+    <span id="artigo3" class="artigos">
     <h2 class="artigo">Como Poupar?</h2>
     <div class="artigo">
       <a href="artigo3.html"><img class="img_artigo" src="assets/poupar-dinheiro.jpg" alt="imagem de destaque"></a>
@@ -106,7 +120,9 @@
 
       </p>
     </div>
-
+    </span>
+    
+    <span id="artigo4" class="artigos">
     <h2 class="artigo">Fontes de Renda</h2>
     <div class="artigo">
       <a href="artigo4.html"><img class="img_artigo" src="assets/fontes de renda.jpg" alt="imagem de destaque"></a>
@@ -119,6 +135,7 @@
         Portanto, preste atenção e descubra as melhores opções sobre como ganhar dinheiro nas horas vagas!
       </p>
     </div>
+    </span>
     <!-- Fim Artigos-->
   </main>
   <!-- Fim do Conteúdo -->

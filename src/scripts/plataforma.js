@@ -33,6 +33,20 @@ const adicionarLocalStorage = (tipo) => {
     tipo: "",
   };
 
+  if (
+    (tipo === "entrada") & (registroEntradaFormElements.data.value === "") &&
+    registroEntradaFormElements.valor.value === "" &&
+    registroEntradaFormElements.descricao.value === ""
+  )
+    return;
+
+  if (
+    (tipo === "saida") & (registroSaidaFormElements.data.value === "") &&
+    registroSaidaFormElements.valor.value === "" &&
+    registroSaidaFormElements.descricao.value === ""
+  )
+    return;
+
   if (tipo === "entrada") {
     novoRegistro.data = registroEntradaFormElements.data.value;
     novoRegistro.valor = registroEntradaFormElements.valor.value;
@@ -50,11 +64,11 @@ const adicionarLocalStorage = (tipo) => {
   localStorage.setItem("historico", JSON.stringify(historicoStorage));
 
   novoRegistro.data = "";
-  novoRegistro.descricao = "";
   novoRegistro.valor = "";
+  novoRegistro.descricao = "";
   novoRegistro.tipo = "";
 
-  criarHistoricoStorage();
+  location.reload();
 };
 
 const excluirLocalStorage = (index) => {
@@ -66,7 +80,7 @@ const excluirLocalStorage = (index) => {
   tbodyHtml.remove();
 
   clearInputs();
-  criarHistoricoStorage();
+  location.reload();
 };
 
 const clearInputs = () => {
@@ -118,6 +132,34 @@ const popularSaldoEntradasSaidas = () => {
     style: "currency",
     currency: "BRL",
   });
+
+  let imgArtigosRecomendados = document.querySelector(
+    "#img-artigos-recomendados"
+  );
+  let linkArtigosRecomendados = document.querySelector(
+    "#link-artigos-recomendados"
+  );
+  let nomeArtigosRecomendados = document.querySelector(
+    "#name-artigos-recomendados"
+  );
+  let saldoTotal = entradasSoma - saidasSoma;
+  if (saldoTotal < 1000) {
+    imgArtigosRecomendados.src = "./assets/fontes de renda.jpg";
+    linkArtigosRecomendados.href = "artigo4.html";
+    nomeArtigosRecomendados.innerHTML = "Fontes de Renda";
+  } else if (saldoTotal >= 1000 && saldoTotal < 10000) {
+    imgArtigosRecomendados.src = "./assets/poupar-dinheiro.jpg";
+    linkArtigosRecomendados.href = "artigo3.html";
+    nomeArtigosRecomendados.innerHTML = "Poupar Dinheiro";
+  } else if (saldoTotal >= 10000 && saldoTotal < 50000) {
+    imgArtigosRecomendados.src = "./assets/investimento_image.jpg";
+    linkArtigosRecomendados.href = "artigo2.html";
+    nomeArtigosRecomendados.innerHTML = "Investimentos";
+  } else {
+    imgArtigosRecomendados.src = "./assets/gestao-financeira.jpg";
+    linkArtigosRecomendados.href = "artigo1.html";
+    nomeArtigosRecomendados.innerHTML = "Gestão Financeira";
+  }
 };
 
 const calcularHora = () => {
@@ -129,7 +171,7 @@ const calcularHora = () => {
   } else if (hour < 8) {
     dateHtml.innerHTML = "Bom Dia!";
   } else if (hour < 12) {
-    dateHtml.innerHTML = "Bom Dia!!";
+    dateHtml.innerHTML = "Bom Dia!";
   } else if (hour < 18) {
     dateHtml.innerHTML = "Boa tarde!";
   } else {
@@ -170,7 +212,7 @@ const adicionarHistoricoHtml = () => {
 
     const tableDataDeletar = document.createElement("td");
     const deletarIcon = document.createElement("img");
-    deletarIcon.setAttribute("src", "./src/assets/lixo.png");
+    deletarIcon.setAttribute("src", "./assets/lixo.png");
     deletarIcon.setAttribute("class", "img_lixo");
     deletarIcon.setAttribute("onclick", `excluirLocalStorage(${index})`);
     tableDataDeletar.appendChild(deletarIcon);
