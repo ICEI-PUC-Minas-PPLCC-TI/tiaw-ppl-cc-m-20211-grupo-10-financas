@@ -133,6 +133,7 @@ div.artigo p {
 .artigo {
   display: grid;
   grid-template-columns: repeat(2, 7fr);
+  align-items: self-end;
   max-width: 1030px;
   margin: 30px auto 33px;
   margin-bottom: 24px;
@@ -145,7 +146,7 @@ img.img_artigo {
   margin-left: -30px;
 }
 h2.artigo {
-  margin-left: 20%;
+  margin-left: 26%;
 }
 /*Fim Artigos*/
 
@@ -201,7 +202,7 @@ h2.artigo {
     width: 100%;
   }
   h2.artigo {
-    margin-left: 9%;
+    margin-left: 6%;
   }
   div.artigo {
     margin-top: 2%;
@@ -218,12 +219,14 @@ h2.artigo {
     top: 103px;
   }
 }
+@media screen and (min-width: 986px) and (max-width: 1085px) {
+  h2.artigo {
+    margin-left: 5%;
+  }
+}
 @media screen and (min-width: 986px) and (max-width: 1150px){
   .lista1 a {
     margin: 10px;
-  }
-  h2.artigo {
-    margin-left: 3%;
   }
   img.img_artigo {
     margin-left: 2%;
@@ -239,9 +242,14 @@ h2.artigo {
     top: 103px;
   }
 }
-@media screen and (min-width: 1151px) and (max-width: 1220px){
+@media screen and (min-width: 986px) and (max-width: 1084px){
   h2.artigo {
-    margin-left: 4%;
+    margin-left: 3%;
+  }
+}
+@media screen and (min-width: 1084px) and (max-width: 1220px){
+  h2.artigo {
+    margin-left: 6%;
   }
 }
 @media screen and (min-width: 1151px) and (max-width: 1302px){
@@ -256,7 +264,7 @@ h2.artigo {
     top: 103px;
   }
 }
-@media screen and (min-width: 1221px) and (max-width: 1360px){
+@media screen and (min-width: 1221px) and (max-width: 1320px){
   h2.artigo {
     margin-left: 8%;
   }
@@ -273,14 +281,44 @@ h2.artigo {
     top: 148px;
   }
 }
-@media screen and (min-width: 1361px) and (max-width: 1460px){
+@media screen and (min-width: 1321px) and (max-width: 1385px){
   h2.artigo {
     margin-left: 10%;
   }
 }
-@media screen and (min-width: 1461px) and (max-width: 1660px){
+@media screen and (min-width: 1386px) and (max-width: 1485px){
+  h2.artigo {
+    margin-left: 13%;
+  }
+}
+@media screen and (min-width: 1486px) and (max-width: 1620px){
   h2.artigo {
       margin-left: 16%;
+    }
+}
+@media screen and (min-width: 1621px) and (max-width: 1732px){
+  h2.artigo {
+      margin-left: 18%;
+    }
+}
+@media screen and (min-width: 1733px) and (max-width: 1836px){
+  h2.artigo {
+      margin-left: 20%;
+    }
+}
+@media screen and (min-width: 1836px) and (max-width: 1936px){
+  h2.artigo {
+      margin-left: 22%;
+    }
+}
+@media screen and (min-width: 1937px) and (max-width: 2117px){
+  h2.artigo {
+      margin-left: 24%;
+    }
+}
+@media screen and (min-width: 2118px) and (max-width: 2217px){
+  h2.artigo {
+      margin-left: 26%;
     }
 }
 /*Fim Media Queries*/
