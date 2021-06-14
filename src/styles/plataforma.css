@@ -2,6 +2,13 @@ body {
   background-color: #606470;
 }
 
+input { 
+  padding-left: 12px;
+  outline: none;
+  border: none;
+}
+
+
 .logo-top {
   width: 150px;
 }
@@ -9,6 +16,11 @@ body {
 .row {
   margin-left: 0px !important;
   margin-right: 0px !important;
+}
+
+.row-btn {
+  justify-content: center;
+  margin-bottom: 32px;
 }
 
 .historico_title {
@@ -31,8 +43,6 @@ th {
   color: #323643;
   text-align: center;
   padding: 10px;
-  border-bottom: 2px solid #323643;
-  border-right: 2px solid #323643;
 }
 
 td {
@@ -41,7 +51,6 @@ td {
   padding-bottom: 7px;
   padding-top: 7px;
   border-top: 2px solid #323643;
-  border-right: 2px solid #323643;
 }
 
 .saida {
@@ -84,6 +93,12 @@ td {
   border: none;
   outline: none;
   border-radius: 20px;
+}
+
+.register-metas-btn {
+  height: 50px;
+  font-size: 22px;
+  padding: 10px 20px;
 }
 
 .modal-body {

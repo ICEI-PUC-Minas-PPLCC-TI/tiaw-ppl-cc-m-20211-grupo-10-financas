@@ -1,4 +1,5 @@
 let historicoStorage = [];
+let metasStorage = [];
 
 const registroEntradaFormElements = {
   data: document.getElementById("data-entrada"),
@@ -14,19 +15,40 @@ const registroSaidaFormElements = {
   salvarBtn: document.getElementById("salvar-saida"),
 };
 
-const criarHistoricoStorage = () => {
-  const isHistoricoStorageCreated = localStorage.getItem("historico");
-  if (!isHistoricoStorageCreated)
-    localStorage.setItem("historico", JSON.stringify([]));
-  else {
-    historicoStorage = JSON.parse(isHistoricoStorageCreated);
-    adicionarHistoricoHtml();
-    popularDados();
-  }
+const registroMetaFormElements = {
+  titulo: document.getElementById("meta-titulo"),
+  valor: document.getElementById("meta-valor"),
+  salvarBtn: document.getElementById("salvar-meta"),
 };
 
-const adicionarLocalStorage = (tipo) => {
+const editarMetaFormElements = {
+  valorAtual: document.getElementById("editar-valor-atual"),
+  valor: document.getElementById("editar-meta-valor"),
+  salvarBtn: document.getElementById("salvar-editar-meta"),
+};
+
+const generateUUID = () => {
+  // Public Domain/MIT
+  let d = new Date().getTime(); //Timestamp
+  let d2 = (performance && performance.now && performance.now() * 1000) || 0; //Time in microseconds since page-load or 0 if unsupported
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    let r = Math.random() * 16; //random number between 0 and 16
+    if (d > 0) {
+      //Use timestamp until depleted
+      r = (d + r) % 16 | 0;
+      d = Math.floor(d / 16);
+    } else {
+      //Use microseconds since page-load if supported
+      r = (d2 + r) % 16 | 0;
+      d2 = Math.floor(d2 / 16);
+    }
+    return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+  });
+};
+
+const adicionarEntradaESaidaLocalStorage = (tipo) => {
   const novoRegistro = {
+    id: "",
     data: "",
     valor: "",
     descricao: "",
@@ -48,11 +70,13 @@ const adicionarLocalStorage = (tipo) => {
     return;
 
   if (tipo === "entrada") {
+    novoRegistro.id = generateUUID();
     novoRegistro.data = registroEntradaFormElements.data.value;
     novoRegistro.valor = registroEntradaFormElements.valor.value;
     novoRegistro.descricao = registroEntradaFormElements.descricao.value;
     novoRegistro.tipo = tipo;
   } else if (tipo === "saida") {
+    novoRegistro.id = generateUUID();
     novoRegistro.data = registroSaidaFormElements.data.value;
     novoRegistro.valor = registroSaidaFormElements.valor.value;
     novoRegistro.descricao = registroSaidaFormElements.descricao.value;
@@ -63,6 +87,7 @@ const adicionarLocalStorage = (tipo) => {
 
   localStorage.setItem("historico", JSON.stringify(historicoStorage));
 
+  novoRegistro.id = "";
   novoRegistro.data = "";
   novoRegistro.valor = "";
   novoRegistro.descricao = "";
@@ -71,16 +96,79 @@ const adicionarLocalStorage = (tipo) => {
   location.reload();
 };
 
-const excluirLocalStorage = (index) => {
+const adicionarMetaLocalStorage = () => {
+  const novaMeta = {
+    id: "",
+    titulo: "",
+    valor: "",
+    valorAtual: "0",
+  };
+
+  if (
+    registroMetaFormElements.titulo.value === "" &&
+    registroMetaFormElements.valor.value === ""
+  )
+    return;
+
+  novaMeta.id = generateUUID();
+  novaMeta.titulo = registroMetaFormElements.titulo.value;
+  novaMeta.valor = registroMetaFormElements.valor.value;
+
+  metasStorage.unshift(novaMeta);
+
+  localStorage.setItem("metas", JSON.stringify(metasStorage));
+
+  novaMeta.id = "";
+  novaMeta.titulo = "";
+  novaMeta.valor = "";
+
+  location.reload();
+};
+
+const excluirHistoricoLocalStorage = (index) => {
   historicoStorage.splice(index, 1);
 
   localStorage.setItem("historico", JSON.stringify(historicoStorage));
 
-  const tbodyHtml = document.querySelector(`tr[name="${index}"]`);
+  const tbodyHtml = document.querySelector(`tr[name="${index}-historico"]`);
   tbodyHtml.remove();
 
   clearInputs();
   location.reload();
+};
+
+const excluirMetasLocalStorage = (index) => {
+  metasStorage.splice(index, 1);
+
+  localStorage.setItem("metas", JSON.stringify(metasStorage));
+
+  const tbodyHtml = document.querySelector(`tr[name="${index}-metas"]`);
+  tbodyHtml.remove();
+
+  clearInputs();
+  location.reload();
+};
+
+const editarMetasLocalStorage = () => {
+  const metaIndex = localStorage.getItem('metaIndex');
+  const meta = metasStorage[metaIndex];
+
+  meta.valorAtual = parseFloat(meta.valorAtual) + parseFloat(editarMetaFormElements.valorAtual.value);
+  meta.valor = parseFloat(editarMetaFormElements.valor.value);
+
+  metasStorage[metaIndex] = meta;
+
+  localStorage.setItem("metas", JSON.stringify(metasStorage));
+
+  clearInputs();
+  location.reload();
+};
+
+const openEditarMetasModal = index => {
+  localStorage.setItem('metaIndex', index);
+  const meta = metasStorage[index];
+
+  editarMetaFormElements.valor.value = meta.valor;
 };
 
 const clearInputs = () => {
@@ -91,6 +179,12 @@ const clearInputs = () => {
   registroSaidaFormElements.data.value = "";
   registroSaidaFormElements.descricao.value = "";
   registroSaidaFormElements.valor.value = "";
+
+  registroMetaFormElements.titulo.value = "";
+  registroMetaFormElements.valor.value = "";
+
+  editarMetaFormElements.valorAtual.value = "";
+  editarMetaFormElements.valor.value = "";
 };
 
 const popularDados = () => {
@@ -180,18 +274,19 @@ const calcularHora = () => {
 };
 
 const adicionarHistoricoHtml = () => {
-  const tableHtml = document.querySelector("table");
+  const tableHtml = document.querySelector("#tableHistorico");
   let tbodyHtml;
-  if (document.querySelector("tbody") === null) {
+  if (document.querySelector("#tbodyHistorico") === null) {
     tbodyHtml = document.createElement("tbody");
+    tbodyHtml.setAttribute("id", "tbodyHistorico");
   } else {
-    tbodyHtml = document.querySelector("tbody");
+    tbodyHtml = document.querySelector("#tbodyHistorico");
   }
   tableHtml.appendChild(tbodyHtml);
   historicoStorage.forEach((transacao, index) => {
-    if (document.querySelector(`tr[name="${index}"]`)) return;
+    if (document.querySelector(`tr[name="${index}-historico"]`)) return;
     const tableRow = document.createElement("tr");
-    tableRow.setAttribute("name", index);
+    tableRow.setAttribute("name", `${index}-historico`);
 
     const tableDataData = document.createElement("td");
     tableDataData.textContent = transacao.data;
@@ -214,7 +309,10 @@ const adicionarHistoricoHtml = () => {
     const deletarIcon = document.createElement("img");
     deletarIcon.setAttribute("src", "./assets/lixo.png");
     deletarIcon.setAttribute("class", "img_lixo");
-    deletarIcon.setAttribute("onclick", `excluirLocalStorage(${index})`);
+    deletarIcon.setAttribute(
+      "onclick",
+      `excluirHistoricoLocalStorage(${index})`
+    );
     tableDataDeletar.appendChild(deletarIcon);
 
     tableRow.appendChild(tableDataData);
@@ -234,4 +332,69 @@ const adicionarHistoricoHtml = () => {
   });
 };
 
-criarHistoricoStorage();
+const adicionarMetasHtml = () => {
+  const tableHtml = document.querySelector("#tableMetas");
+  let tbodyHtml;
+  if (document.querySelector("#tbodyMetas") === null) {
+    tbodyHtml = document.createElement("tbody");
+    tbodyHtml.setAttribute("id", "tbodyMetas");
+  } else {
+    tbodyHtml = document.querySelector("#tbodyMetas");
+  }
+  tableHtml.appendChild(tbodyHtml);
+
+  metasStorage.forEach((meta, index) => {
+    if (document.querySelector(`tr[name="${index}-metas"]`)) return;
+    const tableRow = document.createElement("tr");
+    tableRow.setAttribute("name", `${index}-metas`);
+
+    const tableDataTitulo = document.createElement("td");
+    tableDataTitulo.textContent = meta.titulo;
+
+    const tableDataProgresso = document.createElement("td");
+    tableDataProgresso.textContent = `${meta.valorAtual}/${meta.valor}`;
+
+    //data-toggle="modal" data-target="#myModal"
+    const tableDataEditar = document.createElement("td");
+    const editarIcon = document.createElement("img");
+    editarIcon.setAttribute("src", "./assets/pencil.png");
+    editarIcon.setAttribute("class", "img_lixo");
+    editarIcon.setAttribute("data-toggle", "modal");
+    editarIcon.setAttribute("data-target", "#editarMetaModal");
+    editarIcon.setAttribute("onclick", `openEditarMetasModal(${index})`);
+    tableDataEditar.appendChild(editarIcon);
+
+    const tableDataDeletar = document.createElement("td");
+    const deletarIcon = document.createElement("img");
+    deletarIcon.setAttribute("src", "./assets/lixo.png");
+    deletarIcon.setAttribute("class", "img_lixo");
+    deletarIcon.setAttribute("onclick", `excluirMetasLocalStorage(${index})`);
+    tableDataDeletar.appendChild(deletarIcon);
+
+    tableRow.appendChild(tableDataTitulo);
+    tableRow.appendChild(tableDataProgresso);
+    tableRow.appendChild(tableDataEditar);
+    tableRow.appendChild(tableDataDeletar);
+
+    tbodyHtml.appendChild(tableRow);
+
+    clearInputs();
+  });
+};
+
+const criarLocalStorage = () => {
+  const isHistoricoStorageCreated = localStorage.getItem("historico");
+  const isMetasStorageCreated = localStorage.getItem("metas");
+  if (!isHistoricoStorageCreated && !isMetasStorageCreated) {
+    localStorage.setItem("historico", JSON.stringify([]));
+    localStorage.setItem("metas", JSON.stringify([]));
+  } else {
+    historicoStorage = JSON.parse(isHistoricoStorageCreated);
+    metasStorage = JSON.parse(isMetasStorageCreated);
+    adicionarHistoricoHtml();
+    adicionarMetasHtml();
+    popularDados();
+  }
+};
+
+criarLocalStorage();
