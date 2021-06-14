@@ -352,7 +352,7 @@ const adicionarMetasHtml = () => {
     tableDataTitulo.textContent = meta.titulo;
 
     const tableDataProgresso = document.createElement("td");
-    tableDataProgresso.textContent = `${meta.valorAtual}/${meta.valor}`;
+    tableDataProgresso.textContent = `R$${meta.valorAtual}/R$${meta.valor}`;
 
     //data-toggle="modal" data-target="#myModal"
     const tableDataEditar = document.createElement("td");
