@@ -94,7 +94,6 @@ const clearInputs = () => {
 };
 
 const popularDados = () => {
-  calcularHora();
   popularSaldoEntradasSaidas();
 };
 
@@ -235,3 +234,48 @@ const adicionarHistoricoHtml = () => {
 };
 
 criarHistoricoStorage();
+calcularHora();
+
+function fazerGrafico() {
+  const mes = document.getElementById("dropdownMenuButton");
+  const text = `Entradas e saidas do mes de ${ mes.options[mes.selectedIndex].text }`
+  const mesArray = historicoStorage.filter(transacaoMes => transacaoMes.data.includes(mes.value));
+  let arrayToDataTable = [];
+  
+  mesArray.forEach(transacao => {
+    arrayToDataTable.push([
+      transacao.data, 
+      transacao.tipo === "entrada" ? parseFloat(transacao.valor) : 0,
+      transacao.tipo === "saida" ? parseFloat(transacao.valor) : 0
+    ])
+  })
+
+  if ( mesArray.length >= 1 ){google.charts.load('current', {
+      packages: ['corechart']
+  });
+  google.charts.setOnLoadCallback(drawChart);
+  document.getElementById('texto-erro').innerHTML = ""
+}
+  else{
+    document.getElementById('texto-erro').innerHTML = "OPS! Não ha nada nesse mes"
+    document.querySelector('#grafico').innerHTML = ""
+  }
+
+  function drawChart() {
+      const container = document.querySelector('#grafico')
+      const data = new google.visualization.arrayToDataTable([
+          ['Date', 'Entadas', 'Saidas'],
+          ...arrayToDataTable
+      ])
+      const options = {
+          title: `${text}`,
+          height: 500,
+          width: 900,
+      }
+
+      const grafico = new google.visualization.ColumnChart(container);
+      grafico.draw(data, options)
+  }
+}
+
+console.log(historicoStorage);
