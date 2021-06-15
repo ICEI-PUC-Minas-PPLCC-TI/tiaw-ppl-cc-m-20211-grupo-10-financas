@@ -1,235 +1,493 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <title>Plataforma Spare</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="styles/header_footer.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/plataforma.css" />
+    <script
+      src="https://kit.fontawesome.com/639a3ddda3.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/5efd0e313d.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <title>Plataforma Spare</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css" href="styles/header_footer.css" />
-  <link rel="stylesheet" type="text/css" href="./styles/main.css" />
-  <link rel="stylesheet" type="text/css" href="./styles/plataforma.css" />
-  <script src="https://kit.fontawesome.com/639a3ddda3.js" crossorigin="anonymous"></script>
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/5efd0e313d.js" crossorigin="anonymous"></script>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet" />
-</head>
+  <body>
+    <!-- Navegação -->
+    <header class="header">
+      <div class="row main_menu">
+        <div class="logo col-12 col-sm-12 col-md-12 col-lg-4">
+          <a href="../index.html"
+            ><img class="logo-top" src="./assets/spare.png" alt="Logo"
+          /></a>
+        </div>
 
-<body>
-  <!-- Navegação -->
-  <header class="header">
-    <div class="row main_menu">
-      <div class="logo col-12 col-sm-12 col-md-12 col-lg-4">
-        <a href="../index.html"><img class="logo-top" src="./assets/spare.png" alt="Logo"></a>
+        <div class="navbar col-12 col-sm-12 col-md-12 col-lg-8">
+          <!-- Menu Mobile -->
+          <input type="checkbox" id="menuToggle" />
+          <label for="menuToggle" class="menu-icon">
+            <i class="fa fa-bars"></i>
+            <i class="fa fa-times-circle"></i>
+          </label>
+          <!-- Menu mais detalhado -->
+          <nav class="nav menu1">
+            <a class="nav-link active" href="./plataforma.html"
+              >Plataforma Spare</a
+            >
+            <a class="nav-link" href="./blog.html">Blog Spare</a>
+            <a class="nav-link" href="about_contact_page.html">Contatos</a>
+            <a class="nav-link" href="login.html">Login</a>
+          </nav>
+        </div>
       </div>
+    </header>
+    <!-- Fim do Navegação -->
+    <main class="main">
+      <div class="container">
+        <div class="row_saldo">
+          <div class="col-12">
+            <h3 id="date"></h3>
+          </div>
+          <div class="col-12">
+            <p>Saldo atual da sua carteira:</p>
+          </div>
+          <div class="col-12">
+            <h1 id="saldoTotal"></h1>
+          </div>
+        </div>
+        <div class="entrada-saida-row">
+          <div class="register-container">
+            <button
+              type="button"
+              class="register-btn"
+              data-toggle="modal"
+              data-target="#entradaModal"
+            >
+              Entrada
+            </button>
+            <span id="entradaTotal"></span>
+          </div>
 
-      <div class="navbar col-12 col-sm-12 col-md-12 col-lg-8">
-        <!-- Menu Mobile -->
-        <input type="checkbox" id="menuToggle" />
-        <label for="menuToggle" class="menu-icon">
-          <i class="fa fa-bars"></i>
-          <i class="fa fa-times-circle"></i>
-        </label>
-        <!-- Menu mais detalhado -->
-        <nav class="nav menu1">
-          <a class="nav-link active" href="./plataforma.html">Plataforma Spare</a>
-          <a class="nav-link" href="./blog.html">Blog Spare</a>
-          <a class="nav-link" href="about_contact_page.html">Contatos</a>
-          <a class="nav-link" href="login.html">Login</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <!-- Fim do Navegação -->
-  <main class="main">
-    <div class="container">
-      <div class="row_saldo">
-        <div class="col-12">
-          <h3 id="date"></h3>
-        </div>
-        <div class="col-12">
-          <p>Saldo atual da sua carteira:</p>
-        </div>
-        <div class="col-12">
-          <h1 id="saldoTotal"></h1>
-        </div>
-      </div>
-      <div class="entrada-saida-row">
-        <div class="register-container">
-          <button type="button" class="register-btn" data-toggle="modal" data-target="#entradaModal">
-            Entrada
-          </button>
-          <span id="entradaTotal"></span>
-        </div>
+          <div class="register-container">
+            <button
+              type="button"
+              class="register-btn"
+              data-toggle="modal"
+              data-target="#saidaModal"
+            >
+              Saída
+            </button>
+            <span id="saidaTotal"></span>
+          </div>
 
-        <div class="register-container">
-          <button type="button" class="register-btn" data-toggle="modal" data-target="#saidaModal">
-            Saída
-          </button>
-          <span id="saidaTotal"></span>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="entradaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                  Registrar Entrada
-                </h5>
-                <button type="button" class="close" id="closeEntradaModal" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="entradaModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Registrar Entrada
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    id="closeEntradaModal"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <input
+                    type="date"
+                    placeholder="dd/mm/aaaa"
+                    id="data-entrada"
+                  />
+                  <input
+                    type="number"
+                    placeholder="R$000,00"
+                    id="valor-entrada"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Descrição"
+                    id="descricao-entrada"
+                  />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="salvar-entrada"
+                    onclick="adicionarEntradaESaidaLocalStorage('entrada')"
+                  >
+                    Salvar
+                  </button>
+                </div>
               </div>
-              <div class="modal-body">
-                <input type="date" placeholder="dd/mm/aaaa" id="data-entrada" />
-                <input type="number" placeholder="R$000,00" id="valor-entrada" />
-                <input type="text" placeholder="Descrição" id="descricao-entrada" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                  Cancelar
-                </button>
-                <button type="button" class="btn btn-primary" id="salvar-entrada"
-                  onclick="adicionarLocalStorage('entrada')">
-                  Salvar
-                </button>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="saidaModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Registrar Saída
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    id="closeSaidaModal"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <input type="date" placeholder="dd/mm/aaaa" id="data-saida" />
+                  <input
+                    type="number"
+                    placeholder="R$000,00"
+                    id="valor-saida"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Descrição"
+                    id="descricao-saida"
+                  />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="salvar-saida"
+                    onclick="adicionarEntradaESaidaLocalStorage('saida')"
+                  >
+                    Salvar
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="saidaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                  Registrar Saída
-                </h5>
-                <button type="button" class="close" id="closeSaidaModal" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <input type="date" placeholder="dd/mm/aaaa" id="data-saida" />
-                <input type="number" placeholder="R$000,00" id="valor-saida" />
-                <input type="text" placeholder="Descrição" id="descricao-saida" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                  Cancelar
-                </button>
-                <button type="button" class="btn btn-primary" id="salvar-saida"
-                  onclick="adicionarLocalStorage('saida')">
-                  Salvar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="historico_title">Histórico</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <table>
-            <thead class="historico_table_title">
-              <th>Data</th>
-              <th id="tableTipoHead">Tipo</th>
-              <th>Descrição</th>
-              <th>Valor</th>
-              <th>Apagar</th>
-            </thead>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h1>Artigos Recomendados:</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a id="link-artigos-recomendados" href="artigo4.html"><img id="img-artigos-recomendados" class="img_artigo"
-              src="./assets/fontes de renda.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <p id="name-artigos-recomendados" class="title-recomendados">Fontes de Renda</p>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="row menu_footer">
-      <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="container">
         <div class="row">
-          <div class="col-4">
-            <a href="https://www.facebook.com/" target="_blank" class="icone">
-              <i class="fab fa-facebook fa-3x"></i>
-            </a>
+          <div class="col-12">
+            <h1 class="historico_title">Histórico</h1>
           </div>
-
-          <div class="col-4">
-            <a href="https://twitter.com/home" target="_blank" class="icone">
-              <i class="fab fa-twitter fa-3x"></i>
-            </a>
-          </div>
-
-          <div class="col-4">
-            <a href="https://www.instagram.com/" target="_blank" class="icone">
-              <i class="fab fa-instagram fa-3x"></i>
-            </a>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <table id="tableHistorico">
+              <thead class="historico_table_title">
+                <th>Data</th>
+                <th id="tableTipoHead">Tipo</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Apagar</th>
+              </thead>
+            </table>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-        <p class="copyright">© Copyright 2000-2021 PUC Minas</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1>Artigos Recomendados:</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <a id="link-artigos-recomendados" href="artigo4.html"
+              ><img
+                id="img-artigos-recomendados"
+                class="img_artigo"
+                src="./assets/fontes de renda.jpg"
+                alt=""
+            /></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p id="name-artigos-recomendados" class="title-recomendados">
+              Fontes de Renda
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-        <p class="logo_footer"><img class="logo-top" src="./assets/spare.png" alt="Logo"></p>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1>Metas:</h1>
+            <div class="row row-btn">
+              <button
+                type="button"
+                class="register-btn register-metas-btn"
+                data-toggle="modal"
+                data-target="#metaModal"
+              >
+                Registrar meta
+              </button>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <table id="tableMetas">
+                  <thead class="historico_table_title">
+                    <th>Título</th>
+                    <th>Progresso</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+        class="modal fade"
+        id="metaModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Registrar Meta
+              </h5>
+              <button
+                type="button"
+                class="close"
+                id="closeSaidaModal"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input
+                type="text"
+                placeholder="Título"
+                id="meta-titulo"
+              />
+              <input
+                type="number"
+                placeholder="Valor desejado"
+                id="meta-valor"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="salvar-meta"
+                onclick="adicionarMetaLocalStorage()"
+              >
+                Salvar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editar Modal -->
+      <div
+      class="modal fade"
+      id="editarMetaModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Editar Meta
+            </h5>
+            <button
+              type="button"
+              class="close"
+              id="closeSaidaModal"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input
+              type="number"
+              placeholder="Adicionar valor"
+              id="editar-valor-atual"
+            />
+            <input
+              type="number"
+              placeholder="Valor desejado"
+              id="editar-meta-valor"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="salvar-editar-meta"
+              onclick="editarMetasLocalStorage()"
+            >
+              Salvar
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+      </div>
+    </main>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script src="./scripts/plataforma.js"></script>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-</body>
+    <footer class="footer">
+      <div class="row menu_footer">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="row">
+            <div class="col-4">
+              <a href="https://www.facebook.com/" target="_blank" class="icone">
+                <i class="fab fa-facebook fa-3x"></i>
+              </a>
+            </div>
 
+            <div class="col-4">
+              <a href="https://twitter.com/home" target="_blank" class="icone">
+                <i class="fab fa-twitter fa-3x"></i>
+              </a>
+            </div>
+
+            <div class="col-4">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="icone"
+              >
+                <i class="fab fa-instagram fa-3x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <p class="copyright">© Copyright 2000-2021 PUC Minas</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+          <p class="logo_footer">
+            <img class="logo-top" src="./assets/spare.png" alt="Logo" />
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts/plataforma.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
