@@ -271,6 +271,38 @@
           </div>
         </div>
       </div>
+      <div id="container-graficos" class="container">
+        <div class="row">
+          <div class="col-6">
+            <h1>Graficos:</h1>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-2">
+              <select name="select" class="opcao" id="dropdownMenuButton" onchange="fazerGrafico()">
+                  <option id="mesAtual" class="meses">Meses</option>
+                  <option class="meses" value="-01-">Janeiro</option>
+                  <option class="meses" value="-02-" >Fevereiro</option>
+                  <option class="meses" value="-03-">Março</option>
+                  <option class="meses" value="-04-">Abril</option>
+                  <option class="meses" value="-05-">Maio</option>
+                  <option class="meses" value="-06-">Junho</option>
+                  <option class="meses" value="-07-">Julho</option>
+                  <option class="meses" value="-08-">Agosto</option>
+                  <option class="meses" value="-09-">Setembro</option>
+                  <option class="meses" value="-10-">Outubro</option>
+                  <option class="meses" value="-11-">Novembro</option>
+                  <option class="meses" value="-12-">Dezembro</option>
+              </select>
+          </div>
+        <div class="row" style="width: 100%;">
+          <div class="col-12">
+              <h1 id="texto-erro"></h1>
+              <div id="grafico"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -455,7 +487,7 @@
         </div>
       </div>
     </footer>
-
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

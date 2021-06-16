@@ -180,3 +180,38 @@ h1 {
     display: none;
   }
 }
+
+#dropdownMenuButton{
+  color: white;
+  background-color: #62E1EB;
+  border-radius: 5px;
+  font-size: 20px;
+  height: 40px;
+  width: 120px;
+  opacity: 0.8;
+  transition: 0.4s;
+}
+
+#dropdownMenuButton:hover{
+  opacity: 1;
+}
+
+div #grafico{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 60vh;
+  margin-bottom: 15px;
+}
+
+#texto-erro{
+  text-align: center;
+  color: white;
+  margin-top: 5px;
+
+}
+
+#container-graficos{
+  margin-top: 35px;
+}
