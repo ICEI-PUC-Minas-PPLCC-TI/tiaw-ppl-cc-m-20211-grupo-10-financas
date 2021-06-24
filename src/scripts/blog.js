@@ -14,6 +14,7 @@ function pesquisar(){
         let artigo4=document.getElementById('artigo4').style;
         let pesquisar=document.getElementById('pesquisar').value;
         let span=document.getElementsByTagName('span');
+        let textHtml;
     
         if (pesquisar=="Gestão Financeira" || pesquisar=='Gestão' || pesquisar=='gestão' || pesquisar=='gestão financeira' || pesquisar=='educação financeira'){
             for (let i =0; i<span.length; i++){
@@ -21,6 +22,23 @@ function pesquisar(){
         }
             artigo1.display='grid';
             artigo1.marginBottom='210px';
+            textoHTML = `<span id="artigo1" class="artigos">
+            <h2 class="artigo">Gestão Financeira</h2>
+            <div class="artigo">
+              <a href="artigo1.html"><img class="img_artigo" src="assets/gestao-financeira.jpg" alt="imagem de destaque"></a>
+              <p>
+                <span class="descrição">Descrição:</span><br>
+                Atualmente, existem diversas famílias e indivíduos que, por falta de planejamento financeiro e/ou falta de
+                conhecimento sobre a importância desse ato, acabam se endividando ou não adquirem a tão sonhada estabilidade
+                financeira, prejudicando a si mesmas e aos outros a seu redor.
+                A educação financeira te ajuda na busca de uma qualidade de vida no futuro, no alcançar seus objetivos e na
+                obtenção da segurança financeira necessária para aproveitar os prazeres da vida.
+              </p>
+              
+            </div>
+            </span>`;
+
+            document.getElementById('artigo1').innerHTML= textoHTML;
         }
         else if (pesquisar=="Investimentos" || pesquisar=="Investimento" || pesquisar=='investimentos' || pesquisar=='investimento' || pesquisar=='investir'){
             for (let i =0; i<span.length; i++){
@@ -50,7 +68,6 @@ function pesquisar(){
             }
         }
         else {
-        let textHtml;
             for (let i =0; i<span.length; i++){
                 span[i].style.display='none';
             }
