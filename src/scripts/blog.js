@@ -29,7 +29,7 @@ function pesquisar(){
             artigo2.display='grid';
             artigo2.marginBottom='210px';
         }
-        else if (pesquisar=="Como Poupar?" || pesquisar=='Como poupar?' || pesquisar=='Como poupar' || pesquisar=='como poupar' || pesquisar=='como poupar?' || pesquisar=='poupar' || pesquisar=='economizar'){
+        else if (pesquisar=="Como Poupar?" || pesquisar=='Como poupar?' || pesquisar=='Como poupar' || pesquisar=='como poupar' || pesquisar=='como poupar?' || pesquisar=='poupar' || pesquisar=='economizar' || pesquisar=='Economizar' || pesquisar=='economia'){
             for (let i =0; i<span.length; i++){
                 span[i].style.display='none'
             }
@@ -45,9 +45,24 @@ function pesquisar(){
         }
         else if (pesquisar=="Todos" || pesquisar=='todos' || pesquisar=='dinheiro' || pesquisar=='finanças'){
             for (let i =0; i<span.length; i++){
-                span[i].style.display='grid'
+                span[i].style.display='grid';
                 span[i].style.marginBottom='0px';
             }
+        }
+        else {
+        let textHtml;
+            for (let i =0; i<span.length; i++){
+                span[i].style.display='none';
+            }
+            artigo1.display='grid';
+
+            textoHTML = `<span id="artigo1" class="artigos">
+            <h2 style="text-align:center;color:white; font-weight:bolder;margin-top:40px;">Não foram encontrados resultados...</h2>
+            <a href="./blog.html"><button style="display:block; margin:0 auto;margin-bottom:500px;background-color: #5ddfea;
+            border-radius: 20px;outline: none;">Voltar</button></a>
+            </span>`;
+
+            document.getElementById('artigo1').innerHTML= textoHTML;
         }
     document.getElementById('pesquisar').value=null;
 }
