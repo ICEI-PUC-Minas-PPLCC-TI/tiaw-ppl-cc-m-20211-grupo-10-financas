@@ -133,6 +133,9 @@ div.artigo p {
 div.artigo{
   margin-top: 52px;
 }
+h2.artigos{
+  font-weight: 600;
+}
 .artigo {
   align-items: self-end;
   max-width: 1030px;
