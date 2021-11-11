@@ -39,7 +39,7 @@
         let listaUsuarios = "";
         for (i = 0; i < db_usuarios.usuarios.length; i++) {
           let usuario = db_usuarios.usuarios[i];
-          listaUsuarios += `<tr><td scope="row">${usuario.nome}</td><td>${usuario.login}</td><td>${usuario.email}</td></tr>`;
+          listaUsuarios += `<tr><td scope="row">${usuario.nome}</td><td scope="row">${usuario.sobrenome}</td><td>${usuario.login}</td><td>${usuario.email}</td></tr>`;
         }
 
         // Substitui as linhas do corpo da tabela
@@ -82,7 +82,9 @@
           </label>
           <!-- Menu mais detalhado -->
           <nav class="nav menu1">
-            <a class="nav-link active" href="./plataforma.html">Plataforma Spare</a>
+            <a class="nav-link active" href="./plataforma.html"
+              >Plataforma Spare</a
+            >
             <a class="nav-link" href="./blog.html">Blog Spare</a>
             <a class="nav-link" href="about_contact_page.html">Contatos</a>
             <a class="nav-link" href="login.html">Login</a>
@@ -95,14 +97,15 @@
       <div class="container">
         <div class="row linha1">
           <div class="col-12 col-lg-8">
-            <h1 class="h1">Olá <span id="nomeUsuario">, seja bem-vindo!</span></h1>
+            <h1 class="h1">
+              Olá <span id="nomeUsuario">, seja bem-vindo!</span>
+            </h1>
           </div>
           <div class="col-12 col-lg-4">
             <button id="btn_logout">Logout</button>
-          </div>          
+          </div>
         </div>
       </div>
-      
 
       <div class="container">
         <div class="row">
@@ -111,6 +114,7 @@
               <thead>
                 <tr class="tr">
                   <th scope="col">Nome</th>
+                  <th scope="col">Sobrenome</th>
                   <th scope="col">login</th>
                   <th scope="col">E-mail</th>
                 </tr>
@@ -126,9 +130,7 @@
           </div>
         </div>
       </div>
-
     </main>
-    
 
     <footer class="footer">
       <div class="row menu_footer">
